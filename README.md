@@ -1,2 +1,2 @@
-kibaki
+FastWayToDie
 ======
