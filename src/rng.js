@@ -49,6 +49,10 @@ module.exports = function(seed) {
      */
     pick: function(source) {
       return source[rng.range(0, source.length)];
+    },
+
+    randHex: function(i) {
+      return (function(m,s,c){return (c ? arguments.callee(m,s,c-1) : '#') + s[m.floor(m.random() * s.length)]})(Math,'0123456789ABCDEF',5)
     }
   };
 
