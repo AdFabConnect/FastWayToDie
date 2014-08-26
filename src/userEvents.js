@@ -1,11 +1,17 @@
 module.exports = {
 
-  touch : 'ontouchend' in document,
+	touch : 'ontouchend' in document,
 
-  startEvent : (this.touch) ? 'touchstart' : 'mousedown',
+	startEvent : function() {
+		return (this.touch) ? 'touchstart' : 'mousedown';
+	},
 
-  moveEvent : (this.touch) ? 'touchmove' : 'mousemove',
+	moveEvent : function() {
+		return (this.touch) ? 'touchmove' : 'mousemove';
+	},
 
-  endEvent : (this.touch) ? 'touchend' : 'mouseup'
-    
+	endEvent : function() {
+		return (this.touch) ? 'touchend' : 'mouseup';
+	}
+
 };
