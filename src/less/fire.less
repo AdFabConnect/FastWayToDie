@@ -1,1 +1,25 @@
 // Fire game
+body{
+  .scene{
+    height: 100%;
+    width: 100%;
+    .body{
+      background: #0000FF;
+      right: 0;
+      bottom: 0;
+      height: 100px;
+      position: absolute;
+      width: 100px;
+    }
+    .fire{
+      bottom: 0;
+      height: 100px;
+      width: 100px;
+      position: absolute;
+      right: 10%;
+      .flame{
+        -webkit-transform: scale(0.3);
+      }
+    }
+  }
+}
