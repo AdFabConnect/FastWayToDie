@@ -1,5 +1,5 @@
-var earth = require('./earth');
-earth();
+// var earth = require('./earth');
+// earth();
 
 var Water = require('./water');
 
