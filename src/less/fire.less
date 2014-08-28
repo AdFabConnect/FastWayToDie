@@ -1,5 +1,5 @@
 // Fire game
-body{
+body{ 
   .scene{
     height: 100%;
     width: 100%;
@@ -13,13 +13,94 @@ body{
     }
     .fire{
       bottom: 0;
-      height: 100px;
-      width: 100px;
+      height: 35%;
+      width: 20%;
       position: absolute;
       right: 10%;
       .flame{
-        -webkit-transform: scale(0.3);
-      }
+        fill:#e73900;
+        -webkit-animation-delay: 0s;
+        fill-opacity: 1;
+        -webkit-animation-timing-function: ease-in;
+        stroke-width: 0px;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: linear;
+        -webkit-animation-direction: normal;  
+        -webkit-transform-origin: 50% 100%; 
+        -webkit-animation-duration: 1.2s;   
+        width: 20%;
+        height: 35%;
+        &#a{
+          -webkit-animation-name: redFlame;
+        }
+        &#b{
+          -webkit-transform: rotate(10deg) translate(0px, -5px) scale(0.7);
+          -webkit-animation-name: greenFlame;
+          fill:#e78c00;
+        }
+        &#c{
+          -webkit-transform: rotate(2deg) translate(0px, -10px) scale(0.4);
+          -webkit-animation-name: yellowFlame;
+          fill:#e7e100;
+        }
+        &#d{
+          -webkit-transform: rotate(4deg) translate(0px, -13px) scale(0.2);
+          -webkit-animation-name: blueFlame;          
+          fill:#78dda1;
+        }
+      } 
     }
   }
+  @-webkit-keyframes redFlame { 
+    0% { -webkit-transform: rotate(-1deg) }
+    10% { -webkit-transform: rotate(3deg) }
+    20% { -webkit-transform: rotate(-1deg) }
+    30% { -webkit-transform: rotate(3deg) }
+    40% { -webkit-transform: rotate(5deg) }
+    50% { -webkit-transform: rotate(7deg) }
+    60% { -webkit-transform: rotate(5deg) }
+    70% { -webkit-transform: rotate(3deg) }
+    80% { -webkit-transform: rotate(-1deg) }
+    90% { -webkit-transform: rotate(3deg)  }
+    100% { -webkit-transform: rotate(-1deg) }
+  }
+  @-webkit-keyframes greenFlame { 
+    0% { -webkit-transform: rotate(4deg) translate(0px, -5px) scale(0.7) }
+    10% { -webkit-transform: rotate(6deg) translate(0px, -5px) scale(0.65) }
+    20% { -webkit-transform: rotate(8deg) translate(0px, -5px) scale(0.6) }
+    30% { -webkit-transform: rotate(6deg) translate(0px, -5px) scale(0.55) }
+    40% { -webkit-transform: rotate(4deg) translate(0px, -5px) scale(0.6) }
+    50% { -webkit-transform: rotate(6deg) translate(0px, -5px) scale(0.6) }
+    60% { -webkit-transform: rotate(8deg) translate(0px, -5px) scale(0.65) }
+    70% { -webkit-transform: rotate(10deg) translate(0px, -5px) scale(0.6) }
+    80% { -webkit-transform: rotate(8deg) translate(0px, -5px) scale(0.65) }
+    90% { -webkit-transform: rotate(6deg) translate(0px, -5px) scale(0.65) }
+    100% { -webkit-transform: rotate(4deg) translate(0px, -5px) scale(0.7) }
+  }
+  @-webkit-keyframes yellowFlame { 
+    0% { -webkit-transform: rotate(2deg) translate(0px, -10px) scale(0.4) }
+    10% { -webkit-transform: rotate(4deg) translate(0px, -10px) scale(0.35) }
+    20% { -webkit-transform: rotate(6deg) translate(0px, -10px) scale(0.30) }
+    30% { -webkit-transform: rotate(4deg) translate(0px, -10px) scale(0.35) }
+    40% { -webkit-transform: rotate(6deg) translate(0px, -10px) scale(0.4) }
+    50% { -webkit-transform: rotate(4deg) translate(0px, -10px) scale(0.4) }
+    60% { -webkit-transform: rotate(2deg) translate(0px, -10px) scale(0.35) }
+    70% { -webkit-transform: rotate(4deg) translate(0px, -10px) scale(0.4) }
+    80% { -webkit-transform: rotate(6deg) translate(0px, -10px) scale(0.4) }
+    90% { -webkit-transform: rotate(4deg) translate(0px, -10px) scale(0.35) }
+    100% { -webkit-transform: rotate(2deg) translate(0px, -10px) scale(0.4) }
+  }  
+  @-webkit-keyframes blueFlame { 
+    0% { -webkit-transform: rotate(3deg) translate(0px, -13px)  scale(0.2) }
+    10% { -webkit-transform: rotate(4deg) translate(0px, -13px)  scale(0.15) }
+    20% { -webkit-transform: rotate(5deg) translate(0px, -13px)  scale(0.2) }
+    30% { -webkit-transform: rotate(6deg) translate(0px, -13px)  scale(0.2) }
+    40% { -webkit-transform: rotate(5deg) translate(0px, -13px)  scale(0.15) }
+    50% { -webkit-transform: rotate(4deg) translate(0px, -13px)  scale(0.2) }
+    60% { -webkit-transform: rotate(3deg) translate(0px, -13px)  scale(0.15) }
+    70% { -webkit-transform: rotate(4deg) translate(0px, -13px)  scale(0.1) }
+    80% { -webkit-transform: rotate(3deg) translate(0px, -13px)  scale(0.15) }
+    90% { -webkit-transform: rotate(4deg) translate(0px, -13px)  scale(0.2) }
+    100% { -webkit-transform: rotate(3deg) translate(0px, -13px)  scale(0.2) }
+  }  
 }
