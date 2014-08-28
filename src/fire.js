@@ -52,7 +52,7 @@ module.exports = function() {
       var i = 0;
       raf.start(function() {
         if (i % 5 === 0) {
-          //this.fireElem.changePositionLeft(pxl);
+          this.fireElem.changePositionLeft(pxl);
           this.checkDefeat();
         }
         i++;
