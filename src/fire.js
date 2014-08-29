@@ -35,41 +35,49 @@ module.exports = function() {
       this.fireElem   = new Element('fire', 'svg', this.sceneElem);
 
 
-      this.initFire(10);
-      this.setListener();
-      this.setFireMoving();
+      this.initFire(4);
+      this.setListener(-5);
+      this.setFireMoving(-2);
       //this.setSceneMoving();
     },
-    setListener: function() {
+    setListener: function(pxl) {
       var touchEndEvent = function touchEndEvent() {
-        this.bodyElem.changePositionLeft(-5);
-        this.collision();
+        this.bodyElem.changePositionLeft(pxl);
+        this.checkCollision();
       }.bind(this);
 
       document.body.addEventListener(userEvents.endEvent(), touchEndEvent, false);
     },
-    setFireMoving: function() { 
+    setFireMoving: function(pxl) { 
       var i = 0;
       raf.start(function() {
-        if (i % 2 === 0) {
-          this.fireElem.changePositionLeft(-1);
+        if (i % 5 === 0) {
+          this.fireElem.changePositionLeft(pxl);
+          this.checkDefeat();
         }
         i++;
       }.bind(this));
     },
-    collision: function() {
+    checkDefeat: function() {
+      if (this.fireElem.getLeft() + this.fireElem.getWidth() <= 0) { 
+        console.log('PERDU BITCH');
+      }
+      return false;      
+    },
+    checkCollision: function() {
       if (this.bodyElem.getLeft() - (this.fireElem.getLeft() + this.fireElem.getWidth()) <= 0) { 
-        return true;
+        console.log('DEAD');
       }
       return false;
     },
     initFire: function(cpt) {
       var svgNS = this.fireElem.div.namespaceURI;
+      var ids = ['a', 'b', 'c', 'd'];
       for (var i = 0; i < cpt; i++) {
         var path = document.createElementNS(svgNS,'path');
-        path.setAttribute('d','M 118.5607,287.49258 C 125.34732,270.12555 113.89584,242.59764 110.28978,226.49036 C 100.50645,211.98657 101.45181,194.47421 106.16418,178.41263 C 113.1009,152.5375 114.24611,30.43176 226.18931,3.090747 C 139.37176,58.27337 197.01889,127.50163 206.41698,160.83623 C 211.90747,186.1695 209.10079,212.57338 196.71951,235.35605 C 179.62589,266.80984 133.98643,284.1453 119.5607,287.49258 z');
+        path.setAttribute('d','M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z');
         path.setAttribute('class', 'flame');
-        path.setAttribute('id', i);
+        path.setAttribute('id', ids[i]);
         this.fireElem.div.appendChild(path);
       }
       
