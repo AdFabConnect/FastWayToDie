@@ -1,10 +1,84 @@
 // Earth game
 .e-ball {
 	position: absolute;
-	background-color: red;
-	top: 0px;
-	left: 0px;
-	width: 70px;
-	height: 100px;
-	border-radius: 100px;
+	display:block;
+	width:100px; 
+	height:130px;
+	background-color:blue;
+	border-radius: 50px 50px 50px 50px ~"/" 50px 50px 80px 80px;
+
+	&.e-boom {
+	  height: 100px;
+	  width: 100px;
+		border-radius: 0px;
+
+		&:before {
+			background-color: inherit;
+			height: 100px;
+			width: 100px;
+			content:"";
+			position: absolute;
+			/* Rotate */
+			-moz-transform: rotate(30deg);
+			-webkit-transform: rotate(30deg);
+			-ms-transform: rotate(30deg);
+			-o-transform: rotate(30deg);
+			transform: rotate(30deg);
+		}
+
+		&:after {
+			background-color: inherit;
+			height: 100px;
+			width: 100px;
+			content:"";
+			position: absolute;
+			/* Rotate */
+			-webkit-transform: rotate(-30deg);
+		}
+	}
+
+	&.e-end {
+		position: absolute;
+		width: 0; 
+		height: 0; 
+		border-radius: 0px;
+		border-bottom: 80px solid;
+		border-left: 50px solid transparent; 
+		border-right: 50px solid transparent; 
+		border-top: 0px solid transparent;
+
+		&:after {
+			background: none;
+			content:"";
+			position: absolute;
+			width: 0; 
+			height: 0; 
+			border-left: 50px solid transparent; 
+			border-right: 50px solid transparent; 
+			border-top: 80px solid;
+			border-bottom: 0px solid transparent;
+			border-color: inherit;
+			margin: 30px 0 0 -50px;
+			-webkit-transform: rotate(0deg);
+			transform-origin: center;
+			-webkit-animation: explode .2s infinite;
+		}
+	}
+
+	&.scale {
+		transform-origin: center;
+		-webkit-animation: pound .5s infinite;
+	}
+}
+
+@-webkit-keyframes pound {
+	0% { -webkit-transform: none rotate(10deg) translate(0px, -10px);  opacity: 1; }
+	10% { -webkit-transform: scale(1.4) rotate(-10deg) translate(0px, -30px); opacity: 1; }
+	50% { opacity: 1; }
+	100% { -webkit-transform: scale(.1) rotate(-50deg) translate(0px, -120px); opacity: .4; }
+}
+
+@-webkit-keyframes explode {
+	0% { -webkit-transform: scale(2) rotate(0deg) translate(0px, -100px); }
+	100% { -webkit-transform: scale(1) rotate(90deg) translate(0px, 120px); }
 }

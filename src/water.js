@@ -45,8 +45,8 @@ var Water = {
   setListener: function() {
     var documentBody = document.body,
         screenWith = window.innerHeight,
-        wrapperShake = document.querySelector('#shake'),
-        svgShake = wrapperShake.querySelector('#shake svg'),
+        wrapperShake = document.querySelector('#avatar'),
+        svgShake = wrapperShake.querySelector('#avatar svg'),
         fish1 = document.getElementById('fish-1'),
         fish2 = document.getElementById('fish-2'),
         currentDistance = 0,
