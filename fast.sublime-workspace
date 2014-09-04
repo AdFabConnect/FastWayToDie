@@ -1,0 +1,1220 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"cur",
+				"cursor"
+			],
+			[
+				"add",
+				"addEventListener"
+			],
+			[
+				"ne",
+				"nextLevel"
+			],
+			[
+				"is",
+				"isMoving"
+			],
+			[
+				"tim",
+				"timer"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"bo",
+				"bottom"
+			],
+			[
+				"cl",
+				"cl	console.log"
+			],
+			[
+				"strto",
+				"strtolower"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"else",
+				"elseif	elseif …"
+			],
+			[
+				"strp",
+				"strpos"
+			],
+			[
+				"strt",
+				"strtolower"
+			],
+			[
+				"str_re",
+				"str_replace"
+			],
+			[
+				"segm",
+				"SegmentHeader"
+			],
+			[
+				"center",
+				"center-text"
+			],
+			[
+				"right",
+				"right-text"
+			],
+			[
+				"vote",
+				"votes"
+			],
+			[
+				"tea",
+				"teamsEnable"
+			],
+			[
+				"pso",
+				"position"
+			],
+			[
+				"Rea",
+				"Readable"
+			],
+			[
+				"co",
+				"cordova"
+			],
+			[
+				"em",
+				"emailCSS"
+			],
+			[
+				"load",
+				"loadCache"
+			],
+			[
+				"class",
+				"classList"
+			],
+			[
+				"cla",
+				"classList"
+			],
+			[
+				"no",
+				"no-repeat  (value)"
+			],
+			[
+				"inline",
+				"inline-block"
+			],
+			[
+				"paddin",
+				"padding-top"
+			],
+			[
+				"font",
+				"font-size"
+			],
+			[
+				"in",
+				"inline-block"
+			],
+			[
+				"d",
+				"display"
+			],
+			[
+				"border",
+				"border-radius"
+			],
+			[
+				"con",
+				"console"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/index.html",
+			"settings":
+			{
+				"buffer_size": 693,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/less/common.less",
+			"settings":
+			{
+				"buffer_size": 2655,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/less/avatar.less",
+			"settings":
+			{
+				"buffer_size": 1977,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/less/water.less",
+			"settings":
+			{
+				"buffer_size": 4477,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/main.js",
+			"settings":
+			{
+				"buffer_size": 4892,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/faby/Desktop/dead.svg",
+			"settings":
+			{
+				"buffer_size": 1911,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/faby/Desktop/heart.svg",
+			"settings":
+			{
+				"buffer_size": 1156,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/water.js",
+			"settings":
+			{
+				"buffer_size": 7241,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/avatar.js",
+			"settings":
+			{
+				"buffer_size": 2161,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 327.0,
+		"selected_items":
+		[
+			[
+				"package cont",
+				"Package Control: Install Package"
+			],
+			[
+				"con pa",
+				"Package Control: Install Package"
+			],
+			[
+				"pack",
+				"Package Control: Add Channel"
+			],
+			[
+				"prett",
+				"HTMLPrettify"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: Install Package",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 125.0,
+		"history":
+		[
+			"view.encoding()",
+			"import urllib.request,os,hashlib; h = '7183a2d3e96f11eeadd761d777e62404' + 'e330c659d4bb41d3bdf022e94cab3cd0'; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); by = urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ', '%20')).read(); dh = hashlib.sha256(by).hexdigest(); print('Error validating download (got %s instead of %s), please try manual install' % (dh, h)) if dh != h else open(os.path.join( ipp, pf), 'wb' ).write(by)"
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/Applications/MAMP/htdocs/FastWayToDie",
+		"/Applications/MAMP/htdocs/FastWayToDie/src",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/less"
+	],
+	"file_history":
+	[
+		"/Applications/MAMP/htdocs/FastWayToDie/src/timer.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/rng.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/test/browser/runner-global-vars-options.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/earth.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/fire.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-eslint/node_modules/eslint/lib/rules/guard-for-in.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/fast.sublime-project",
+		"/Applications/MAMP/htdocs/FastWayToDie/gulpfile.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/styles.less",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/test/less/import/import-and-relative-paths-test.less",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/tmp/browser/test-runner-main.html",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-uglify/node_modules/uglify-js/lib/mozilla-ast.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/test/css/mixins-named-args.css",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-uglify/test/minify.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/browserify/node_modules/events/tests/modify-in-emit.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-buffer/Makefile",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/raf.js",
+		"/Users/faby/Documents/fish.svg",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/main.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/node_modules/request/node_modules/http-signature/http_signing.md",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/test/css/extract-and-length.css",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/browserify/node_modules/glob/test/root-nomount.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/README.md",
+		"/Applications/MAMP/htdocs/FastWayToDie/build/b.svg",
+		"/Users/faby/Documents/b.svg",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/water.min.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/water.beautified.js",
+		"/Users/faby/Documents/shaking.svg",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/less/test/css/css.css",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-less/node_modules/convert-source-map/test/convert-source-map.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/CHANGELOG.md",
+		"/Applications/MAMP/htdocs/FastWayToDie/src/userEvents.js",
+		"/Applications/MAMP/htdocs/FastWayToDie/build/build.css",
+		"/Applications/MAMP/htdocs/FastWayToDie/build/index.html",
+		"/Applications/MAMP/htdocs/FastWayToDie/node_modules/gulp-util/lib/isNull.js",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/config.inc.php",
+		"/Applications/MAMP/htdocs/loreal/back-office/css/bootstrap-datetimepicker.min.css",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/cookie.php",
+		"/Applications/MAMP/htdocs/summersite/summersite-front/old/include/config.inc.php",
+		"/Applications/MAMP/htdocs/loreal/devops/config/Test/config.php",
+		"/Applications/MAMP/htdocs/loreal/devops/config/Production/config.php",
+		"/Applications/MAMP/htdocs/loreal/devops/config/Preproduction/config.php",
+		"/Applications/MAMP/htdocs/loreal/devops/config/Continuous/config.php",
+		"/Applications/MAMP/htdocs/loreal/back-office/include/config.inc.php",
+		"/Applications/MAMP/htdocs/summersite/summersite-front-old/index.php",
+		"/Applications/MAMP/htdocs/summersite/summersite-front-old/include/config.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/static/statics/css/style.css",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/page/fan_gate.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/functions.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/tpl/header.inc.php",
+		"/Applications/MAMP/htdocs/summersite/summersite-front/index.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/index.php",
+		"/Applications/MAMP/htdocs/summersite/summersite-back/index.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/pages.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/export/production.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/static.inc.php",
+		"/Applications/MAMP/htdocs/svg-test/test_icon2x_borderCSS/bower.json",
+		"/Applications/MAMP/htdocs/loreal/README.md",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/export/preprod.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/page/home.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/export/production.inc.php.old",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/export/preprod.inc.php.old",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/static/statics/css/style.old.css",
+		"/Applications/MAMP/htdocs/armani-youtube-channel/devops/config/Continuous/index.php",
+		"/Applications/MAMP/htdocs/armani-youtube-channel/devops/config/Continuous/config.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/page/item.inc.php",
+		"/Applications/MAMP/htdocs/loreal/.gitignore",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/page_mobile/fan_gate.inc.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/include/fb/facebook.php",
+		"/Applications/MAMP/htdocs/loreal/back-office/include/functions.inc.php",
+		"/Applications/MAMP/htdocs/loreal/back-office/css/style.css",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/static/statics/css/style_mobile.css",
+		"/Applications/MAMP/htdocs/loreal/back-office/index.php",
+		"/Applications/MAMP/htdocs/loreal/summersite-front/.htaccess",
+		"/Applications/MAMP/htdocs/eoptions/skin/frontend/eoptions/default/less/account.less",
+		"/Applications/MAMP/htdocs/app/lib/i18n/es.index.js",
+		"/Applications/MAMP/htdocs/app/lib/enums/index.js",
+		"/Applications/MAMP/htdocs/app/gulp/elasticsearch.js",
+		"/Applications/MAMP/htdocs/app/lib/view-game-page/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/i18n/en.index.js",
+		"/Applications/MAMP/htdocs/app/lib/view-players-list/index.css",
+		"/Applications/MAMP/htdocs/app/lib/jogabo-react/common.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-app/separator.css",
+		"/Applications/MAMP/htdocs/app/lib/view-price-picker/index.css",
+		"/Applications/MAMP/htdocs/app/component.json",
+		"/Applications/MAMP/htdocs/app/lib/view-players-list/component.json",
+		"/Applications/MAMP/htdocs/app/lib/view-app/themes.css",
+		"/Applications/MAMP/htdocs/app/lib/css/index.js",
+		"/Applications/MAMP/htdocs/app/lib/view-game-stats/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-game-banner/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-game-page/index.css",
+		"/Applications/MAMP/htdocs/app/lib/view-app/app.css",
+		"/Applications/MAMP/htdocs/app/lib/app/app.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-mixin-slides/index.js",
+		"/Applications/MAMP/htdocs/app/lib/view-app/slide.css",
+		"/Applications/MAMP/htdocs/app/lib/view-game-stats/index.css",
+		"/Applications/MAMP/htdocs/app/lib/jobs/txt/view-email-game-coming.en.hbs",
+		"/Applications/MAMP/htdocs/app/lib/view-mixin-infinity/index.js",
+		"/Applications/MAMP/htdocs/app/lib/jobs/txt/view-email-message.en.hbs",
+		"/Applications/MAMP/htdocs/app/lib/controllers/venue.js",
+		"/Applications/MAMP/htdocs/app/snippet.js",
+		"/Applications/MAMP/htdocs/app/lib/view-mixin-slides/component.json",
+		"/Applications/MAMP/htdocs/app/lib/jobs/txt/view-email-game-stats.en.hbs",
+		"/Applications/MAMP/htdocs/app/lib/view-game-checkout/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/jobs/txt/view-email-comment.en.hbs",
+		"/Applications/MAMP/htdocs/app/lib/jobs/txt/view-email-game-waitlist.en.hbs",
+		"/Applications/MAMP/htdocs/app/lib/view-chart/index.js",
+		"/Applications/MAMP/htdocs/app/lib/view-game-team-pick/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-app/helpers.css",
+		"/Applications/MAMP/htdocs/app/www/index.html",
+		"/Applications/MAMP/htdocs/app/lib/view-game-post/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-game-teams/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/controllers/game.js",
+		"/Applications/MAMP/htdocs/app/lib/view-app/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-game-post/component.json",
+		"/Applications/MAMP/htdocs/app/lib/view-toggles/index.css",
+		"/Applications/MAMP/htdocs/app/lib/view-game-team-pick/component.json",
+		"/Applications/MAMP/htdocs/app/scripts/sync-game-state.js",
+		"/Applications/MAMP/htdocs/app/lib/api/game/game.client.js",
+		"/Applications/MAMP/htdocs/app/lib/models/game/game.shared.js",
+		"/Applications/MAMP/htdocs/app/lib/routes/component.json",
+		"/Applications/MAMP/htdocs/app/lib/routes/routes.shared.js",
+		"/Applications/MAMP/htdocs/app/lib/routes/routes.api.js",
+		"/Applications/MAMP/htdocs/app/lib/controllers/email.js",
+		"/Applications/MAMP/htdocs/app/lib/api/dashboard/index.js",
+		"/Applications/MAMP/htdocs/app/lib/view-game-post/index.css",
+		"/Applications/MAMP/htdocs/app/lib/view-workout-trimer/index.jsx",
+		"/Applications/MAMP/htdocs/app/lib/view-workout-trimer/index.css"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 93.0,
+		"where_history":
+		[
+			"/Applications/MAMP/htdocs/FastWayToDie/src/less",
+			"/Applications/MAMP/htdocs/loreal/",
+			"/Applications/MAMP/htdocs/loreal/devops",
+			"/Applications/MAMP/htdocs/loreal/",
+			"/Applications/MAMP/htdocs/loreal/back-office",
+			"/Applications/MAMP/htdocs/loreal/summersite-front",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app/lib, *.js",
+			"/Applications/MAMP/htdocs/app/lib, *.css",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app/lib,*.jsx",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app/lib,*.jsx",
+			"/Applications/MAMP/htdocs/app/lib,*.js",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app/lib, *.css",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app/lib, *.jsx",
+			"/Applications/MAMP/htdocs/app",
+			"/Applications/MAMP/htdocs/app/www",
+			"/Applications/MAMP/htdocs/app/",
+			"/Applications/MAMP/htdocs/app/lib",
+			"/Applications/MAMP/htdocs/app/cordova/hooks",
+			"/Applications/MAMP/htdocs/sieclab",
+			""
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"50ms",
+			"animFish",
+			"(0, 0)",
+			" rotateY(0deg) rotateX(0deg); ",
+			"userEvents",
+			";",
+			"timer",
+			"Avatar",
+			"e(0,",
+			"(0,",
+			"(0, 0)",
+			"0, 0, 0",
+			"0, 0",
+			"100%",
+			"all 250ms ease-in",
+			"transition",
+			"50ms",
+			"transition",
+			"});",
+			"#shake",
+			"0deg",
+			"rotate",
+			"100ms",
+			": 0%",
+			"100%",
+			": 0%",
+			"run",
+			"pied",
+			"100ms",
+			"0% 0%",
+			"eg)",
+			"50ms",
+			"750ms",
+			"run",
+			"50%",
+			"rotateY",
+			"animFish",
+			"50% 80%",
+			"\n 	-webkit-transform-origin: 50% 80%;\n		 -moz-transform-origin: 50% 80%;\n			-ms-transform-origin: 50% 80%;\n		   -o-transform-origin: 50% 80%;\n					transform-origin: 50% 80%;",
+			"M46.1279297 186.2 C46.1279297 186.2 55.4 203.9 55.9 231.5 C60.7495117 232.6 71.8 232.4 71.8 232.4",
+			"randHex",
+			"alert",
+			"0.6",
+			"goBack",
+			"height:50%;",
+			"50",
+			";",
+			"var ",
+			"1",
+			"isMoving",
+			"isDead",
+			"movef",
+			"window.",
+			"destroyGame",
+			"moveFish",
+			"stop",
+			"destroyGame",
+			"move",
+			"moveF",
+			"isDead",
+			"moveFish",
+			"touchStartEvent",
+			"destroyGame",
+			"alert",
+			"createWave",
+			"halfHeight",
+			"raf",
+			"animation",
+			"cancel",
+			"window.cancelAnimationFrame(id);",
+			"r",
+			"nb",
+			"transform",
+			"animFish1",
+			"animFish",
+			";",
+			");",
+			"rotate",
+			"rotateY",
+			"250ms",
+			"3",
+			"animWave",
+			" translate3d(1%, 0, 0)",
+			"20",
+			"40%",
+			"3s",
+			"5s",
+			"NAME-YOUR-ANIMATION",
+			"\n  0%   { opacity: 0; }\n  100% { opacity: 1; }",
+			"ocean",
+			"6",
+			"\"",
+			"for",
+			"\n		&:nth-child(2){\n			animation-delay: .2s;\n		}",
+			"0.1",
+			"background-color",
+			"80%",
+			"50%",
+			"1.2, 0.8",
+			"less",
+			"1.6",
+			"0.6",
+			"1.6",
+			"\n	&.bounce-hard{\n		-webkit-transform: scale(1.6, 0.6);\n			 -moz-transform: scale(1.6, 0.6);\n				-ms-transform: scale(1.6, 0.6);\n				 -o-transform: scale(1.6, 0.6);\n						transform: scale(1.6, 0.6);\n	}\n",
+			"currentDistance",
+			"50ms",
+			"-1%",
+			"le(-1, 1)",
+			"d(0",
+			"(1, 1)",
+			"scale(1.2, 0.8)",
+			" 	s",
+			" 		a",
+			"		5",
+			"sc",
+			"	s",
+			"	",
+			" 	",
+			"scale",
+			"  scale",
+			"id=",
+			"100",
+			"200ms",
+			"wrapperShake",
+			"500ms",
+			"1",
+			"20px 20px",
+			"&"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"http://app-dev.jogabo.com:8383/assets/",
+			"192.168.1.9",
+			"10.40.82.181",
+			"192.168.43.102",
+			"250ms",
+			"0, 0);",
+			"translate3d(0, 50%)"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 4,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/index.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								597,
+								601
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/less/common.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2655,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								617,
+								617
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 232.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 5,
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "src/less/avatar.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1977,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								24,
+								29
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 3,
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "src/less/water.less",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4477,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1971,
+								2195
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/LESS/LESS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1435.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/main.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4892,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3713,
+								3713
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 190.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/Users/faby/Desktop/dead.svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1911,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1911,
+								0
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/Users/faby/Desktop/heart.svg",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1156,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1156,
+								0
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "ASCII",
+							"syntax": "Packages/XML/XML.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 6,
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "src/water.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 7241,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5403,
+								5414
+							]
+						],
+						"settings":
+						{
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1676.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 8,
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "src/avatar.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2161,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1827,
+								1827
+							]
+						],
+						"settings":
+						{
+							"open_with_edit": true,
+							"origin_encoding": "UTF-8",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 7,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 25.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"project": "fast.sublime-project",
+	"replace":
+	{
+		"height": 46.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"rgn",
+				"src/rng.js"
+			],
+			[
+				"eart",
+				"src/earth.js"
+			],
+			[
+				"fire",
+				"src/fire.js"
+			],
+			[
+				"gul",
+				"gulpfile.js"
+			],
+			[
+				"rn",
+				"src/rng.js"
+			],
+			[
+				"main",
+				"src/main.js"
+			],
+			[
+				"gulp",
+				"gulpfile.js"
+			],
+			[
+				"rng",
+				"src/rng.js"
+			],
+			[
+				"inde",
+				"src/index.html"
+			],
+			[
+				"cooki",
+				"old/cookie.php"
+			],
+			[
+				"cookie",
+				"summersite-front/cookie.php"
+			],
+			[
+				"conf",
+				"summersite-front/old/include/config.inc.php"
+			],
+			[
+				"fan",
+				"summersite-front/include/page/fan_gate.inc.php"
+			],
+			[
+				"stat",
+				"summersite-front/include/static.inc.php"
+			],
+			[
+				"con",
+				"summersite-front/include/config.inc.php"
+			],
+			[
+				"item.inc.php",
+				"summersite-front/include/page/item.inc.php"
+			],
+			[
+				"style",
+				"summersite-front/static/statics/css/style.css"
+			],
+			[
+				"css",
+				"summersite-front/static/statics/css/style.css"
+			],
+			[
+				"en.",
+				"lib/i18n/en.index.js"
+			],
+			[
+				"en",
+				"lib/i18n/es.index.js"
+			],
+			[
+				"common",
+				"lib/jogabo-react/common.jsx"
+			],
+			[
+				"view-players-list",
+				"lib/view-players-list/index.jsx"
+			],
+			[
+				"app",
+				"lib/view-app/app.css"
+			],
+			[
+				"viewmixins",
+				"lib/view-mixin-slides/index.js"
+			],
+			[
+				"viewgamesta",
+				"lib/view-game-stats/index.jsx"
+			],
+			[
+				"hel",
+				"lib/view-app/helpers.css"
+			],
+			[
+				"gameteam",
+				"lib/view-game-team-pick/index.jsx"
+			],
+			[
+				"iew-workout-trimer",
+				"lib/view-workout-trimer/index.jsx"
+			],
+			[
+				"view-game-stats",
+				"lib/view-game-stats/index.jsx"
+			],
+			[
+				"",
+				"www/index.html"
+			],
+			[
+				"make",
+				"components/pgherveou/modelfactory/0.1.33/Makefile"
+			],
+			[
+				"ap",
+				"lib/app/app.jsx"
+			],
+			[
+				"appclie",
+				"lib/app/app.client.js"
+			],
+			[
+				"ind",
+				"www/index.html"
+			],
+			[
+				"confi",
+				"lib/config/development.config.json"
+			],
+			[
+				"routser",
+				"lib/routes/routes.server.js"
+			],
+			[
+				"config",
+				"lib/config/development.config.json"
+			],
+			[
+				"jobe",
+				"lib/jobs/email.js"
+			],
+			[
+				"configde",
+				"lib/config/development.config.json"
+			],
+			[
+				"dev",
+				"lib/config/development.config.json"
+			],
+			[
+				"configin",
+				"lib/config/index.js"
+			],
+			[
+				"appcl",
+				"lib/app/app.client.js"
+			],
+			[
+				"routecl",
+				"lib/routes/routes.client.js"
+			],
+			[
+				"roul",
+				"lib/routes/routes.client.js"
+			],
+			[
+				"routesin",
+				"lib/routes/index.js"
+			],
+			[
+				"appap",
+				"lib/app/app.client.js"
+			],
+			[
+				"jobem",
+				"lib/jobs/email.js"
+			],
+			[
+				"appen",
+				"public/app-en.js"
+			],
+			[
+				"appapp",
+				"lib/app/app.client.js"
+			],
+			[
+				"appappcl",
+				"lib/app/app.client.js"
+			],
+			[
+				"viewgamechec",
+				"lib/view-game-checkout/index.jsx"
+			],
+			[
+				"gameshared",
+				"lib/models/game/game.shared.js"
+			],
+			[
+				"viewchartpie",
+				"lib/view-chart/performance-pie-chart.jsx"
+			],
+			[
+				"viewcharle",
+				"lib/view-chart/legend.jsx"
+			],
+			[
+				"viewchartindex",
+				"lib/view-chart/index.js"
+			],
+			[
+				"workoutshared",
+				"lib/models/workout/workout.shared.js"
+			],
+			[
+				"workout",
+				"lib/models/workout/workout.client.js"
+			],
+			[
+				"wourkou",
+				"lib/api/workout/workout.client.js"
+			],
+			[
+				"gameshare",
+				"lib/models/game/game.shared.js"
+			],
+			[
+				"enumsin",
+				"lib/enums/index.js"
+			],
+			[
+				"cssindex",
+				"lib/css/index.js"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+			[
+				"apa",
+				"/Applications/MAMP/htdocs/sublime-projects/apache.sublime-project"
+			]
+		],
+		"width": 380.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 218.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
