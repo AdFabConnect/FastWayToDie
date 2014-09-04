@@ -1,9 +1,11 @@
 var userEvents = require('./userEvents'),
-    timer = require('./timer');
+    timer = require('./timer'),
+    avatar = require('./avatar');
 
 var Water = {
 
-  start: function() {
+  start: function(callBackEnd) {
+    this.callBackEnd = callBackEnd;
     this.ocean = document.getElementById('ocean');
     document.body.classList.add('water');
     this.setListener();
@@ -45,17 +47,22 @@ var Water = {
   setListener: function() {
     var documentBody = document.body,
         screenWith = window.innerHeight,
-        wrapperShake = document.querySelector('#avatar'),
+        wrapperShake = avatar.getAvatar(),
         svgShake = wrapperShake.querySelector('#avatar svg'),
         fish1 = document.getElementById('fish-1'),
         fish2 = document.getElementById('fish-2'),
+        water = document.getElementById('water'),
+        thisIsTheEnd = this.callBackEnd,
         currentDistance = 0,
         direction = 'left',
-        isMoving = false,
         isFinished = false,
+        isMoving = false,
         currentX = 0,
         startX = 0,
+        state,
         rafID;
+
+    water.insertBefore(wrapperShake, water.firstChild);
 
     fish2.style.bottom = fish1.style.bottom = fish2.style.left = fish1.style.right = '0px';
 
@@ -125,6 +132,8 @@ var Water = {
       timer.stop();
       isFinished = true;
       cancelAnimationFrame(rafID);
+      thisIsTheEnd(state);
+      document.body.classList.remove('water');
     };
 
     var moveFish = function() {
@@ -148,7 +157,7 @@ var Water = {
       }
 
       if (!isFinished && newRight > halfWidthHit){
-        window.alert('YOUR DEAD');
+        state = true;
         destroyGame();
       } else {
         requestAnimationFrame(moveFish);
@@ -163,8 +172,8 @@ var Water = {
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);
 
-    timer.start(10, function() {
-      window.alert('YOU LOSE');
+    timer.start(1, function() {
+      state = false;
       destroyGame();
     });
     
@@ -177,4 +186,6 @@ var Water = {
 
 };
 
-module.exports = Water;
+module.exports = function(cb) {
+  Water.start(cb);
+};
