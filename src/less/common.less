@@ -4,6 +4,7 @@
 
 html,
 body{
+  font-family: @regular-font;
   font-size: 16px;
 	margin: 0;
 	padding: 0;
@@ -48,9 +49,18 @@ body{
   }
 }
 
+#counter-time {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: 20px;
+}
+
 #life{
   width: 100%;
-  height: 100px;
+  height: 85px;
+  -webkit-transform: translate3d(0, 50%, 0);
+          transform: translate3d(0, 50%, 0);
   > div{
     display: inline-block;
     text-align: center;
@@ -103,7 +113,6 @@ body{
 .next{
   background: #ffa700;
   display: table;
-  font-family: @regular-font;
   z-index: 5000;
 
   -webkit-transform-origin: 50% 100%;
