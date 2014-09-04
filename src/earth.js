@@ -1,61 +1,104 @@
 var rng = require('./rng');
 var raf = require('./raf');
+var Avatar = require('./avatar');
 
 module.exports = function() {
 
-	var Ball = function(x, y) {
+	var Ball = function(x, y, callback) {
 		var color = rng().randHex();
 
 		this.div = document.createElement('div');
-		this.div.style.background = color;
-		this.div.style.borderBottomColor = color;
-		this.div.style.borderTopColor = color;
+		this.div.innerHTML = '<div class="e-ball" style="background:'+color
+			+'; border-bottom-color:'+color
+			+'; border-top-color:'+color+'"></div>'
+		// this.div.style.background = color;
+		// this.div.style.borderBottomColor = color;
+		// this.div.style.borderTopColor = color;
+		this.div.style.webkitTransform = 'scale(.'+(Math.round(Math.random()*2, 1)+5)+')';
 		this.div.style.top = y + 'px';
 		this.div.style.left = x + 'px';
 		this.div.style.zIndex = '999';
-		this.div.className = 'e-ball';
-
-		document.body.appendChild(this.div);
+		this.div.className = 'e-ball-wrap';
 
 		this.div.addEventListener('click', function(e) {
-			earth.destroyBall(this.div);
+			callback(this.div);
 		}.bind(this));
+
+		return this.div;
 	};
 
 	var earth = {
 		size: 100,
+		numb: 10,
 
 		destroyBall: function(div) {
-			var i = 0;
+			var i = 0,
+				ball = div.querySelector('.e-ball');
 
-			div.classList.add('e-boom');
-			div.classList.add('scale');
+			ball.classList.add('e-boom');
+			ball.classList.add('scale');
 
-			raf.start(function() {
+			var id = raf.start(function() {
 				if (i === 30) {
 					div.remove(this);
-					return;
+					if(this.life <= 0) {
+						this.win();
+					}
+					this.life--;
+					raf.stop(id);
 				}else if (i === 15) {
-					div.classList.remove('e-end');
-					div.style.background = 'none';
-					div.classList.add('e-end');
+					ball.classList.remove('e-end');
+					ball.style.background = 'none';
+					ball.classList.add('e-end');
 				}else if (i === 10) {
-					div.classList.add('e-boom');
+					ball.classList.add('e-boom');
 				}
 				i++;
 			}.bind(this));
 		},
 
 		init:function() {
+			this.earth = document.getElementById('earth');
+			this.bWrap = this.earth.querySelector('.balloon');
 
-			this.initGame(10);
+			this.setAvatar();
+			this.initGame(this.numb);
+		},
+
+		win: function() {
+			console.log(win);
 		},
 
 		initGame: function(cpt) {
+			this.life = cpt;
+
+			var av = Avatar.getAvatar().offsetWidth;
 			
 			for (var i = 0; i < cpt; i++) {
-				var b = new Ball(Math.round(Math.random() * (document.body.offsetWidth - this.size)), Math.round(Math.random() * this.size * 2));
+				var x = document.body.offsetWidth/2 + (Math.round(Math.random() * (av * 3))) - (av * 3 / 2) - 40,
+				//var x = Math.round(Math.random() * (document.body.offsetWidth - this.size)),
+					y = Math.round(Math.random() * 20 * 2) + 20;
+
+				var b = new Ball(x, y, this.destroyBall.bind(this));
+
+				var deltaY = 150 - y + (b.offsetHeight / 2);
+				var deltaX = document.body.offsetWidth / 2 - (x - (b.offsetWidth / 2));
+
+				var angle = (Math.atan(deltaX/deltaY) * 180 / Math.PI + 180);
+
+				//var dif = (document.body.offsetWidth / 2) - x - (b.querySelector('.e-ball').offsetWidth / 2);
+				//b.style.webkitTransform = 'rotate(' + angle + 'deg)';
+
+				//console.log('deltaY', deltaY, 'deltaX', deltaX, 'angle', angle, deltaX/deltaY);
+
+				this.bWrap.appendChild(b);
 			}
+		},
+
+		setAvatar: function() {
+			var div = Avatar.getAvatar();
+
+			this.earth.appendChild(div);
 		}
 	};
 

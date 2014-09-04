@@ -15,7 +15,7 @@ var earth = require('./earth'),
 var Game = {
 
   begin: function() {
-    this.levels = [Water, earth, fire];
+    this.levels = [earth, Water, fire];
 
     this.levelIndex = 0;
 
