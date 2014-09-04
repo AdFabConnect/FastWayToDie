@@ -1,43 +1,56 @@
-// var earth = require('./earth');
-// earth();
-
-// var Water = require('./water');
-
-// Water.start();
-
-// var fire = require('./fire');
-// fire();
 var earth = require('./earth'),
     Water = require('./water'),
     fire = require('./fire'),
-    userEvents = require('./userEvents');
+    userEvents = require('./userEvents'),
+    avatar = require('./avatar');
 
 var Game = {
 
   begin: function() {
-    this.levels = [earth, Water, fire];
-
+    this.levels = [Water, fire, earth];
+    this.scoreElement = document.querySelector('#score span');
     this.levelIndex = 0;
-
+    this.score = 0;
+    this.lifeLeft = 2;
+    this.createLife();
     this.nextLevel();
   },
 
   createLife: function() {
-    var lifes = document.querySelector('.life'),
-        heart ='',
-        heart ='';
-    for (var i = 2; i >= 0; i--) {
-      lifes.appendChild('');
-      lifes.appendChild('');
+    var lifes = document.querySelector('#life'),
+        itemLife,
+        i;
+
+    for (i = 2; i >= 0; i--) {
+      itemLife = document.createElement('div');
+      itemLife.id = 'life-' + i;
+      itemLife.className = 'dead';
+      itemLife.innerHTML = avatar.getSvg();
+      lifes.appendChild(itemLife);
     };
+
   },
 
   nextLevel: function() {
     this.levels[this.levelIndex](function(levelState) {
       console.log('level : ' + this.levelIndex + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
       this.levelIndex++;
-      // this.nextLevel();
-      this.animNextLevel();
+      
+      if (levelState) {
+        this.scoreElement.innerHTML = ++this.score;
+      } else {
+        document.querySelector('#life-' + this.lifeLeft--).classList.remove('dead');
+      }
+
+      if (this.lifeLeft < 0) {
+        alert('GAME OVER');
+      } else {
+        if(this.levelIndex >= this.levels.length){
+          this.levelIndex = 0;
+        }
+        this.animNextLevel();
+      }
+
     }.bind(this));
   },
 
@@ -47,8 +60,6 @@ var Game = {
         btn = next.querySelector('.btn');
     if(bgColor) next.backgroundColor = bgColor;
     next.classList.add('on');
-
-
 
     btn.addEventListener(userEvents.endEvent(), function() {
       next.classList.remove('on');

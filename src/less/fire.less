@@ -1,22 +1,22 @@
-// Fire game
 body{ 
-  .scene{
+  .sceneFire{
+    background: #00eaff;
     height: 100%;
     width: 100%;
-    .body{
-      background: #0000FF;
-      right: 0;
+    #avatar{
+      left: auto;
+      right: 10px;
       bottom: 0;
-      height: 100px;
       position: absolute;
-      width: 100px;
+      -webkit-transform: scale(-1, 1);
+      -webkit-animation: none;
     }
     .fire{
       bottom: 0;
-      height: 35%;
-      width: 20%;
+      height: 246px;
+      width: 205px;
       position: absolute;
-      right: 10%;
+      right: 20%;
       .flame{
         fill:#e73900;
         -webkit-animation-delay: 0s;
@@ -28,8 +28,6 @@ body{
         -webkit-animation-direction: normal;  
         -webkit-transform-origin: 50% 100%; 
         -webkit-animation-duration: 1.2s;   
-        width: 20%;
-        height: 35%;
         &#a{
           -webkit-animation-name: redFlame;
         }
@@ -54,14 +52,14 @@ body{
   @-webkit-keyframes redFlame { 
     0% { -webkit-transform: rotate(-1deg) }
     10% { -webkit-transform: rotate(3deg) }
-    20% { -webkit-transform: rotate(-1deg) }
+    20% { -webkit-transform: rotate(-1deg) scale(0.95) }
     30% { -webkit-transform: rotate(3deg) }
-    40% { -webkit-transform: rotate(5deg) }
-    50% { -webkit-transform: rotate(7deg) }
-    60% { -webkit-transform: rotate(5deg) }
+    40% { -webkit-transform: rotate(5deg) scale(0.95) }
+    50% { -webkit-transform: rotate(7deg) scale(0.90) }
+    60% { -webkit-transform: rotate(5deg) scale(0.95) }
     70% { -webkit-transform: rotate(3deg) }
-    80% { -webkit-transform: rotate(-1deg) }
-    90% { -webkit-transform: rotate(3deg)  }
+    80% { -webkit-transform: rotate(-1deg) scale(0.95) }
+    90% { -webkit-transform: rotate(3deg) scale(0.95) }
     100% { -webkit-transform: rotate(-1deg) }
   }
   @-webkit-keyframes greenFlame { 

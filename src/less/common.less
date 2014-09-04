@@ -4,6 +4,7 @@
 
 html,
 body{
+  font-family: @regular-font;
   font-size: 16px;
 	margin: 0;
 	padding: 0;
@@ -25,21 +26,75 @@ body{
   vertical-align: middle;
 }
 
+.score{
+  font-size: 1.5em;
+  color: rgba(0, 0, 0, 0.5);
+  -webkit-transform: translate3d(0, -100%, 0);
+          transform: translate3d(0, -100%, 0);
+}
+
 .btn{
-  padding: 2% 5%;
   border-radius: 5%;
+  display: inline-block;
+  font-size: 3em;
+  padding: 2% 3%;
+  color: #FFF;
   -webkit-transition: all 25ms ease-in;
-     -moz-transition: all 25ms ease-in;
-      -ms-transition: all 25ms ease-in;
-       -o-transition: all 25ms ease-in;
           transition: all 25ms ease-in;
   &:hover{
     background: darken(#ffa700, 10%);
     cursor: pointer;
     -webkit-animation: btnBounce 750ms ease-in-out infinite;
-       -moz-animation: btnBounce 750ms ease-in-out infinite;
-         -o-animation: btnBounce 750ms ease-in-out infinite;
             animation: btnBounce 750ms ease-in-out infinite;
+  }
+}
+
+#counter-time {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  font-size: 20px;
+}
+
+#life{
+  width: 100%;
+  height: 85px;
+  -webkit-transform: translate3d(0, 50%, 0);
+          transform: translate3d(0, 50%, 0);
+  > div{
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    width: 33%;
+    &:first-child{
+      text-align: right;
+    }
+    &:last-child{
+      text-align: left;
+    }
+  }
+  svg {
+    height:100%;
+    width: 70px;
+  }
+
+  .dead{
+    svg {
+      *{
+        fill: #C4C4C4 !important;
+        stroke: #8A8A8A !important;
+      }
+      #mouth{
+        -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+        -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+      }
+      .pied1,
+      .pied2{
+        display: none;
+      }
+    }
   }
 }
 
@@ -49,41 +104,31 @@ body{
   100%{ -webkit-transform: scale(1, 1)}
 }
 
+@keyframes btnBounce {
+  0%  { transform: scale(1, 1)}
+  50%{ transform: scale(0.9, 0.9)}
+  100%{ transform: scale(1, 1)}
+}
+
 .next{
   background: #ffa700;
-  color: #FFF;
   display: table;
-  font-family: @regular-font;
-  font-size: 3em;
   z-index: 5000;
 
   -webkit-transform-origin: 50% 100%;
-     -moz-transform-origin: 50% 100%;
-      -ms-transform-origin: 50% 100%;
-       -o-transform-origin: 50% 100%;
           transform-origin: 50% 100%;
 
    -webkit-transition: all 500ms cubic-bezier(0.115, 0.730, 0.320, 0.865); 
-     -moz-transition: all 500ms cubic-bezier(0.115, 0.730, 0.320, 0.865); 
-       -o-transition: all 500ms cubic-bezier(0.115, 0.730, 0.320, 0.865); 
-          transition: all 500ms cubic-bezier(0.115, 0.730, 0.320, 0.865); /* custom */
+          transition: all 500ms cubic-bezier(0.115, 0.730, 0.320, 0.865);
 
     -webkit-transition-timing-function: cubic-bezier(0.115, 0.730, 0.320, 0.865); 
-       -moz-transition-timing-function: cubic-bezier(0.115, 0.730, 0.320, 0.865); 
-         -o-transition-timing-function: cubic-bezier(0.115, 0.730, 0.320, 0.865); 
-            transition-timing-function: cubic-bezier(0.115, 0.730, 0.320, 0.865); /* custom */
+            transition-timing-function: cubic-bezier(0.115, 0.730, 0.320, 0.865);
 
    -webkit-transform: scale(1, 0) translate3d(0, 100%, 0);
-      -moz-transform: scale(1, 0) translate3d(0, 100%, 0);
-       -ms-transform: scale(1, 0) translate3d(0, 100%, 0);
-        -o-transform: scale(1, 0) translate3d(0, 100%, 0);
            transform: scale(1, 0) translate3d(0, 100%, 0);
 
   &.on{
    -webkit-transform: scale(1, 1) translate3d(0, 0, 0);
-      -moz-transform: scale(1, 1) translate3d(0, 0, 0);
-       -ms-transform: scale(1, 1) translate3d(0, 0, 0);
-        -o-transform: scale(1, 1) translate3d(0, 0, 0);
            transform: scale(1, 1) translate3d(0, 0, 0);
 
   }
