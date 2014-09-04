@@ -17,50 +17,51 @@ body{
 	left: 0;
 	height: 100%;
 	width: 100%;
-}
+  
+  #avatar{
+    position: absolute;
+    margin: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 40%;
+    height: 20%;
+    margin: 0;
+    -webkit-transition: all 50ms ease-in;
+            transition: all 50ms ease-in;
 
-#avatar{
-	position: absolute;
-	margin: auto;
-	bottom: 0;
-	left: 0;
-	right: 0;
-	top: 40%;
-	height: 20%;
-	margin: 0;
-	-webkit-transition: all 50ms ease-in;
-					transition: all 50ms ease-in;
+    -webkit-transform-origin: 50% 80%;
+            transform-origin: 50% 80%;
 
- 	-webkit-transform-origin: 50% 80%;
-					transform-origin: 50% 80%;
+    &.bounce{
+      -webkit-transform: scale(1.2, 0.8);
+              transform: scale(1.2, 0.8);
+    }
 
-	&.bounce{
-		-webkit-transform: scale(1.2, 0.8);
-						transform: scale(1.2, 0.8);
-	}
+    &.bounce-heavy{
+      -webkit-transform: scale(1.4, 0.65);
+              transform: scale(1.4, 0.65);
+    }
 
-	&.bounce-heavy{
-		-webkit-transform: scale(1.4, 0.65);
-						transform: scale(1.4, 0.65);
-	}
+    &.bounce-hard{
+      -webkit-transform: scale(1.65, 0.4);
+              transform: scale(1.65, 0.4);
+    }
 
-	&.bounce-hard{
-		-webkit-transform: scale(1.65, 0.4);
-						transform: scale(1.65, 0.4);
-	}
+    svg{
+      width: 100%;
+    }
 
-	svg{
-		width: 100%;
-	}
+    .left{
+      -webkit-transform: scale(1, 1) translate3d(-1%, 0, 0);
+              transform: scale(1, 1) translate3d(-1%, 0, 0);
+    }
+    .right{
+      -webkit-transform: scale(-1, 1) translate3d(1%, 0, 0);
+              transform: scale(-1, 1) translate3d(1%, 0, 0);
+    }
+  }
 
-	.left{
-		-webkit-transform: scale(1, 1) translate3d(-1%, 0, 0);
-	       		transform: scale(1, 1) translate3d(-1%, 0, 0);
-	}
-	.right{
-		-webkit-transform: scale(-1, 1) translate3d(1%, 0, 0);
-	        	transform: scale(-1, 1) translate3d(1%, 0, 0);
-	}
 }
 
 #fish-1,

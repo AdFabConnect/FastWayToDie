@@ -172,7 +172,7 @@ var Water = {
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);
 
-    timer.start(1, function() {
+    timer.start(0, function() {
       state = false;
       destroyGame();
     });
