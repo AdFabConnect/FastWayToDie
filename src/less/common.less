@@ -34,8 +34,9 @@ body{
 
 .btn{
   border-radius: 5%;
-  padding: 2% 3%;
+  display: inline-block;
   font-size: 3em;
+  padding: 2% 3%;
   color: #FFF;
   -webkit-transition: all 25ms ease-in;
           transition: all 25ms ease-in;
@@ -65,15 +66,24 @@ body{
   svg {
     height:100%;
     width: 70px;
-    *{
-      fill: #C4C4C4 !important;
-      stroke: #8A8A8A !important;
-    }
-    #mouth{
-      -webkit-transform: rotate(180deg);
-      transform: rotate(180deg);
-      transform-origin: 50% 100%;
-      -webkit-transform-origin: 50% 100%;
+  }
+
+  .dead{
+    svg {
+      *{
+        fill: #C4C4C4 !important;
+        stroke: #8A8A8A !important;
+      }
+      #mouth{
+        -webkit-transform: rotate(180deg);
+                transform: rotate(180deg);
+        -webkit-transform-origin: 50% 100%;
+                transform-origin: 50% 100%;
+      }
+      .pied1,
+      .pied2{
+        display: none;
+      }
     }
   }
 }

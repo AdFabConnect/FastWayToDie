@@ -8,9 +8,10 @@ var Game = {
 
   begin: function() {
     this.levels = [Water, earth, fire];
-    this.score = 0;
     this.scoreElement = document.querySelector('#score span');
     this.levelIndex = 0;
+    this.score = 0;
+    this.lifeLeft = 2;
     this.createLife();
     this.nextLevel();
   },
@@ -23,6 +24,7 @@ var Game = {
     for (i = 2; i >= 0; i--) {
       itemLife = document.createElement('div');
       itemLife.id = 'life-' + i;
+      itemLife.className = 'dead';
       itemLife.innerHTML = avatar.getSvg();
       lifes.appendChild(itemLife);
     };
@@ -36,8 +38,19 @@ var Game = {
       // this.nextLevel();
       if (levelState) {
         this.scoreElement.innerHTML = ++this.score;
+      } else {
+        document.querySelector('#life-' + this.lifeLeft--).classList.remove('dead');
       }
-      this.animNextLevel();
+
+      if (this.lifeLeft < 0) {
+        alert('GAME OVER');
+      } else {
+        if(this.levelIndex >= this.levels.length - 1){
+          this.levelIndex = 0;
+        }
+        this.animNextLevel();
+      }
+
     }.bind(this));
   },
 
@@ -47,8 +60,6 @@ var Game = {
         btn = next.querySelector('.btn');
     if(bgColor) next.backgroundColor = bgColor;
     next.classList.add('on');
-
-
 
     btn.addEventListener(userEvents.endEvent(), function() {
       next.classList.remove('on');
