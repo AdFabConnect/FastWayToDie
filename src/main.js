@@ -7,7 +7,7 @@ var earth = require('./earth'),
 var Game = {
 
   begin: function() {
-    this.levels = [Water, earth, fire];
+    this.levels = [Water, fire, earth];
     this.scoreElement = document.querySelector('#score span');
     this.levelIndex = 0;
     this.score = 0;
@@ -35,7 +35,7 @@ var Game = {
     this.levels[this.levelIndex](function(levelState) {
       console.log('level : ' + this.levelIndex + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
       this.levelIndex++;
-      // this.nextLevel();
+      
       if (levelState) {
         this.scoreElement.innerHTML = ++this.score;
       } else {
@@ -45,7 +45,7 @@ var Game = {
       if (this.lifeLeft < 0) {
         alert('GAME OVER');
       } else {
-        if(this.levelIndex >= this.levels.length - 1){
+        if(this.levelIndex >= this.levels.length){
           this.levelIndex = 0;
         }
         this.animNextLevel();
