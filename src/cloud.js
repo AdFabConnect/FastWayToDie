@@ -14,7 +14,7 @@ var Cloud = function Cloud() {
 };
 
 Cloud.prototype.getCloud = function getCloud(scale) {
-  this.htmlCloud.style.webkitTransform = 'translate(' + Math.round(Math.random() * (document.body.offsetWidth - 100)) + 'px, ' + Math.round(Math.random() * 100 * 2) + 'px) scale('+scale+')';
+  this.htmlCloud.style.webkitTransform = 'translate(' + Math.round(Math.random() * (document.body.offsetWidth - 100)) + 'px, ' + Math.round(Math.random() * 100 * 2) + 'px) scale(' + scale + ')';
   return this.htmlCloud;
 };
 
