@@ -1,0 +1,29 @@
+.cloud, .cloud:before, .cloud:after {
+  position: absolute;
+  background: #fff;
+}
+.cloud {
+  width: 80px;
+  height: 30px;
+  left: 10px;
+  top: 42px;
+  border-radius: 15px;
+  &:before {
+    content:'';
+    width: 20px;
+    height: 22px;
+    left: 13px;
+    top: -12px;
+    border-radius: 10px;
+    z-index: 20;
+  }
+  &:after {
+    content:'';
+    width: 40px;
+    height: 40px;
+    right: 13px;
+    top: -21px;
+    border-radius: 20px;
+    z-index: 20;
+  }
+}
