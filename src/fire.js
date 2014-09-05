@@ -1,6 +1,7 @@
 var userEvents  = require('./userEvents'),
     raf         = require('./raf'),
     avatar      = require('./avatar'),
+    timer       = require('./timer'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
@@ -65,13 +66,13 @@ module.exports = function(callBackEnd) {
     },
     setListener: function(pxl) {
       this.touchEndEvent = function touchEndEvent() {
-        this.avatarElem.className = "";
+        this.avatarElem.className = '';
       }.bind(this);
 
       this.touchStartEvent = function touchStartEvent() {
         this.avatarElem.style.left = (this.avatarElem.getBoundingClientRect().left + pxl) + 'px';
-        this.avatarElem.style.right = "auto";        
-        this.avatarElem.className = "run";
+        this.avatarElem.style.right = 'auto';        
+        this.avatarElem.className = 'run';
         this.checkCollision();
       }.bind(this);
 
@@ -87,11 +88,6 @@ module.exports = function(callBackEnd) {
         i++;
       }.bind(this));
     },
-    checkDefeat: function() {
-      if (this.fireElem.getLeft() + this.fireElem.getWidth() <= 0) {
-        this.destroyGame(false); 
-      }   
-    },
     checkCollision: function() {
       if (this.avatarElem.getBoundingClientRect().left - (this.fireElem.getLeft() + this.fireElem.getWidth()) <= 0) { 
         this.destroyGame(true);
@@ -101,11 +97,16 @@ module.exports = function(callBackEnd) {
       document.body.removeEventListener(userEvents.startEvent(), this.touchStartEvent, false);
       document.body.removeEventListener(userEvents.endEvent(), this.touchEndEvent, false);
       this.callBackEnd(state);
-      debugger;
       this.sceneElem.div.parentNode.removeChild(this.sceneElem.div);
+      timer.stop();
     }
     
   };
+
+  timer.start(10, function() {
+    fire.destroyGame(false);
+  });
+
   fire.init();
   return fire;
 };
