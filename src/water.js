@@ -1,6 +1,7 @@
 var userEvents = require('./userEvents'),
     timer = require('./timer'),
-    avatar = require('./avatar');
+    avatar = require('./avatar'),
+    hint = require('./hint');
 
 var Water = {
 
@@ -10,6 +11,8 @@ var Water = {
     document.body.classList.add('water');
     this.setListener();
     this.createWave();
+
+    hint.setHint('Swipe to tease piranhas');
   },
 
   stop: function() {
@@ -126,6 +129,7 @@ var Water = {
     };
 
     var destroyGame = function() {
+      hint.setHint('');
       documentBody.removeEventListener(userEvents.startEvent(), touchStartEvent, false);
       documentBody.removeEventListener(userEvents.moveEvent(), touchMoveEvent, false);
       documentBody.removeEventListener(userEvents.endEvent(), touchEndEvent, false);

@@ -1,5 +1,9 @@
 // Common style
 
+*{
+  -webkit-user-select:none;
+}
+
 @regular-font: Arial, sans-serif;
 
 html,
@@ -34,6 +38,7 @@ body{
 }
 
 .btn{
+  background: darken(#ffa700, 2%);
   border-radius: 5%;
   display: inline-block;
   font-size: 3em;
@@ -47,6 +52,19 @@ body{
     -webkit-animation: btnBounce 750ms ease-in-out infinite;
             animation: btnBounce 750ms ease-in-out infinite;
   }
+}
+
+#score{
+  padding-bottom: 10%;
+}
+
+#hint{
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 2%;
+  position: absolute;
+  width: 100%;
 }
 
 #counter-time {
