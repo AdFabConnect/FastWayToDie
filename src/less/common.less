@@ -15,6 +15,46 @@ body{
 	height: 100%;
 	width: 100%;
 }
+
+@media (orientation: landscape) {
+  .lock-l{
+    #lock{
+      display: block;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .lock-p{
+    #lock{
+      display: block;
+    }
+  }
+}
+
+#lock{
+  display: none;
+  background: rgba(160, 0, 0, 0.9);
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100000;
+  .table{
+    display: table;
+    height: 100%;
+    width: 100%;
+  }
+  .v-align-table{
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+    transform: scale(-1, -1);
+    text-align: center;
+  }
+}
+
 // use this class to make a tag full browser
 .full{
   position: absolute;
@@ -64,7 +104,7 @@ body{
   text-align: center;
   padding: 2%;
   position: absolute;
-  width: 100%;
+  width: 96%;
 }
 
 #counter-time {
