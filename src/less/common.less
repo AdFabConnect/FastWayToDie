@@ -92,6 +92,13 @@ body{
     -webkit-animation: btnBounce 750ms ease-in-out infinite;
             animation: btnBounce 750ms ease-in-out infinite;
   }
+
+  &.purple{
+  background: darken(#b392d4, 2%);
+    &:hover{
+      background: darken(#b392d4, 10%);
+    }
+  }
 }
 
 #score{
@@ -105,6 +112,7 @@ body{
   padding: 2%;
   position: absolute;
   width: 96%;
+  z-index: 1000;
 }
 
 #counter-time {
@@ -166,6 +174,72 @@ body{
   0%  { transform: scale(1, 1)}
   50%{ transform: scale(0.9, 0.9)}
   100%{ transform: scale(1, 1)}
+}
+
+.start{
+  background: #b392d4;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 5000;
+  .btn{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -61px;
+    margin-top: -37px;;
+  }
+  .title{
+    color: rgb(219, 24, 79);
+    font-size: 20px;
+    padding-bottom: 40px;
+    -webkit-animation: blurry 1250ms ease-in-out infinite;
+            animation: blurry 1250ms ease-in-out infinite;
+    -webkit-transform-origin: 50% 0%;
+            transform-origin: 50% 0%;
+    pointer-events: none;
+    position: relative;
+    z-index: 55;
+  }
+}
+
+.start-screen{
+  .start{
+    display: table;
+  }
+}
+
+@-webkit-keyframes blurry{
+  0%  {
+    -webkit-transform: scale(1, 1) rotate(45deg);
+    -webkit-filter: blur(0px);
+  }
+  50%{
+    -webkit-transform: scale(1.5, 1.5) rotate(0deg);
+    -webkit-filter: blur(5px);
+  }
+  100%{
+    -webkit-transform: scale(1, 1) rotate(45deg);
+    -webkit-filter: blur(0px);
+  }
+}
+
+@keyframes blurry {
+  0%  {
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -webkit-transform: scale(1, 1) rotate(45deg);
+  }
+  50%{
+    filter: blur(5px);
+    -webkit-filter: blur(5px);
+    -webkit-transform: scale(5, 5) rotate(0deg);
+  }
+  100%{
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -webkit-transform: scale(1, 1) rotate(45deg);
+  }
 }
 
 .next{

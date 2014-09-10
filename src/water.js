@@ -65,6 +65,9 @@ var Water = {
         state,
         rafID;
 
+    wrapperShake.className = '';
+    wrapperShake.style.left = wrapperShake.style.right = 0;
+
     water.insertBefore(wrapperShake, water.firstChild);
 
     fish2.style.bottom = fish1.style.bottom = fish2.style.left = fish1.style.right = '0px';
@@ -136,6 +139,7 @@ var Water = {
       timer.stop();
       isFinished = true;
       cancelAnimationFrame(rafID);
+      rafID = null;
       thisIsTheEnd(state);
       document.body.classList.remove('water');
     };
@@ -163,7 +167,8 @@ var Water = {
       if (!isFinished && newRight > halfWidthHit){
         state = true;
         destroyGame();
-      } else {
+      }
+      if (!isFinished) {
         requestAnimationFrame(moveFish);
       }
     };
@@ -176,7 +181,7 @@ var Water = {
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);
 
-    timer.start(10, function() {
+    timer.start(1, function() {
       state = false;
       destroyGame();
     });
