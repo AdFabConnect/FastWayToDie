@@ -6,6 +6,11 @@ var userEvents  = require('./userEvents'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
+
+  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
+    fire.destroyGame(false);
+  });  
+
   var Element = function(className, elemType, parent) {
     parent = typeof parent !== 'undefined' ? parent.div : document.body;
     if (elemType === 'svg') {
@@ -31,33 +36,33 @@ module.exports = function(callBackEnd) {
     fireElem: null,
     avatarElem: null,
     callBackEnd: null,
+    decalPxl: 35,
     init: function() { 
       this.sceneElem  = new Element('sceneFire', 'div');
-      this.fireElem   = new Element('fire', 'svg', this.sceneElem);
+      this.fireElem   = new Element('fire', 'div');
       this.callBackEnd = callBackEnd;
 
+
       this.initAvatar();
-      this.initFire(4);
-      this.setListener(-5);
+      this.initFire();
       this.setFireMoving(-1);
       this.initClouds(5);
+      if ('ontouchend' in document) {
+        this.decalPxl = 10;
+        this.setDeviceSpec(80, 117);
+      }
+      this.setListener(-8);
       hint.setHint('Tap to catch fire');
     },
     initAvatar: function() {
         this.avatarElem = avatar.getAvatar();
+        this.avatarElem.style.right = '10px';
+        this.avatarElem.style.left = 'auto';
         this.sceneElem.div.appendChild(this.avatarElem);
     },
-    initFire: function(cpt) {
-      var svgNS = this.fireElem.div.namespaceURI;
-
-      for (var i = 0; i < cpt; i++) {
-        var path = document.createElementNS(svgNS,'path');
-        path.setAttribute('d','M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z');
-        path.setAttribute('class', 'flame');
-        path.setAttribute('id', ['a', 'b', 'c', 'd'][i]);
-        this.fireElem.div.appendChild(path);
-      }
-      
+    initFire: function() {
+      var svg = '<svg class="fireSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="205px" height="246px" viewBox="0 0 205 246" version="1.1"><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="a" /><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="b" /><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="c" /><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="d" /></svg>';
+      this.fireElem.div.innerHTML = svg;
       this.sceneElem.div.appendChild(this.fireElem.div);
     },
     initClouds: function(cpt) {
@@ -84,31 +89,40 @@ module.exports = function(callBackEnd) {
     setFireMoving: function(pxl) { 
       var i = 0;
       raf.start(function() {
-        if (i % 5 === 0) {
+        if (i % 2 === 0) {
           this.fireElem.changePositionLeft(pxl);
+          this.fireElem.div.style.right = 'auto'; 
         }
         i++;
       }.bind(this));
     },
     checkCollision: function() {
-      if (this.avatarElem.getBoundingClientRect().left - (this.fireElem.getLeft() + this.fireElem.getWidth()) <= 0) { 
+      if (this.avatarElem.getBoundingClientRect().left - (this.fireElem.getLeft() + this.fireElem.getWidth() - this.decalPxl) <= 0) { 
         this.destroyGame(true);
       }
     },
+    setDeviceSpec: function(w, h) {
+      var fireSvg = document.querySelector('.fireSvg'),
+          avatarSvg = document.querySelector('.sceneFire .left');
+
+      fireSvg.style.width = w;
+      fireSvg.style.height = h;
+      avatarSvg.style.width = w;
+      avatarSvg.style.height = h;
+    },
     destroyGame: function(state) {
       hint.setHint('');
+
       document.body.removeEventListener(userEvents.startEvent(), this.touchStartEvent, false);
       document.body.removeEventListener(userEvents.endEvent(), this.touchEndEvent, false);
-      this.callBackEnd(state);
+
       this.sceneElem.div.parentNode.removeChild(this.sceneElem.div);
+
+      this.callBackEnd(state);
       timer.stop();
     }
     
   };
-
-  timer.start(10, function() {
-    fire.destroyGame(false);
-  });
 
   fire.init();
   return fire;
