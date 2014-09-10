@@ -3,11 +3,13 @@ var earth = require('./earth'),
     fire = require('./fire'),
     userEvents = require('./userEvents'),
     avatar = require('./avatar');
+window.levelIndex = 0;
+window.gamesLength = 0;
 
 var Game = {
 
   begin: function() {
-    var start = document.querySelector('.start'),
+    var start = document.querySelector('.start .btn'),
         bodyClass = document.body.classList;
 
     document.getElementById('life').innerHTML = '';
@@ -25,8 +27,9 @@ var Game = {
 
   startGame: function() {
     this.levels = [Water, fire];
+    gamesLength = this.levels.length;
     this.scoreElement = document.querySelector('#score span');
-    this.levelIndex = 0;
+    window.levelIndex = 0;
     this.scoreElement.innerHTML = this.score = 0;
     this.lifeLeft = 2;
     this.createLife();
@@ -49,9 +52,9 @@ var Game = {
   },
 
   nextLevel: function() {
-    this.levels[this.levelIndex](function(levelState) {
-      console.log('level : ' + this.levelIndex + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
-      this.levelIndex++;
+    this.levels[window.levelIndex % gamesLength](function(levelState) {
+      console.log('level : ' + (window.levelIndex % window.gamesLength) + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
+      window.levelIndex++;
       
       if (levelState) {
         this.scoreElement.innerHTML = ++this.score;
@@ -61,11 +64,12 @@ var Game = {
 
       if (this.lifeLeft < 0) {
         alert('GAME OVER');
+        window.levelIndex = 0;
         this.begin();
       } else {
-        if (this.levelIndex >= this.levels.length) {
-          this.levelIndex = 0;
-        }
+        // if (levelIndex >= this.levels.length) {
+        //   levelIndex = 0;
+        // }
         this.animNextLevel();
       }
 

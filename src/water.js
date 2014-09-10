@@ -1,7 +1,9 @@
 var userEvents = require('./userEvents'),
     timer = require('./timer'),
     avatar = require('./avatar'),
-    hint = require('./hint');
+    hint = require('./hint'),
+    countPlayIndex = 0,
+    countPlay = [15, 10, 7];
 
 var Water = {
 
@@ -181,7 +183,7 @@ var Water = {
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);
 
-    timer.start(1, function() {
+    timer.start(countPlay[(window.levelIndex / window.gamesLength)], function() {
       state = false;
       destroyGame();
     });
