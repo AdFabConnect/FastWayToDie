@@ -2,6 +2,7 @@ var userEvents  = require('./userEvents'),
     raf         = require('./raf'),
     avatar      = require('./avatar'),
     timer       = require('./timer'),
+    hint        = require('./hint'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
@@ -40,6 +41,7 @@ module.exports = function(callBackEnd) {
       this.setListener(-5);
       this.setFireMoving(-1);
       this.initClouds(5);
+      hint.setHint('Tap to catch fire');
     },
     initAvatar: function() {
         this.avatarElem = avatar.getAvatar();
@@ -94,6 +96,7 @@ module.exports = function(callBackEnd) {
       }
     },
     destroyGame: function(state) {
+      hint.setHint('');
       document.body.removeEventListener(userEvents.startEvent(), this.touchStartEvent, false);
       document.body.removeEventListener(userEvents.endEvent(), this.touchEndEvent, false);
       this.callBackEnd(state);
