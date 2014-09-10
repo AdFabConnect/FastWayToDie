@@ -183,7 +183,7 @@ var Water = {
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);
 
-    timer.start(countPlay[(window.levelIndex / window.gamesLength)], function() {
+    timer.start(countPlay[(parseInt(window.levelIndex / window.gamesLength))], function() {
       state = false;
       destroyGame();
     });
