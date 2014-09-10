@@ -6,11 +6,6 @@ var userEvents  = require('./userEvents'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
-
-  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
-    fire.destroyGame(false);
-  });  
-
   var Element = function(className, elemType, parent) {
     parent = typeof parent !== 'undefined' ? parent.div : document.body;
     if (elemType === 'svg') {
@@ -123,6 +118,10 @@ module.exports = function(callBackEnd) {
     }
     
   };
+
+  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
+    fire.destroyGame(false);
+  }); 
 
   fire.init();
   return fire;
