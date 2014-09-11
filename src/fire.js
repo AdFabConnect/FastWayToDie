@@ -6,16 +6,12 @@ var userEvents  = require('./userEvents'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
-  var Element = function(className, elemType, parent) {
+  var Element = function(className, parent) {
     parent = typeof parent !== 'undefined' ? parent.div : document.body;
-    if (elemType === 'svg') {
-      this.div = document.createElementNS('http://www.w3.org/2000/svg', elemType);
-      this.div.setAttribute('class', className);
-    } else {
-      this.div = document.createElement(elemType);
-      parent.appendChild(this.div);
-      this.div.className = className;
-    }
+    this.div = document.createElement('div');
+    parent.appendChild(this.div);
+    this.div.className = className;
+    this.div.id = className;
   };
   Element.prototype.changePositionLeft = function(pixel) {
     this.div.style.left = (this.getLeft() + pixel) + 'px';
@@ -33,8 +29,9 @@ module.exports = function(callBackEnd) {
     callBackEnd: null,
     decalPxl: 35,
     init: function() { 
-      this.sceneElem  = new Element('sceneFire', 'div');
-      this.fireElem   = new Element('fire', 'div', this.sceneElem);
+      this.sceneElem  = new Element('sceneFire');
+      this.fireElem   = new Element('fire', this.sceneElem);
+      this.avatarElem = new Element('avatar',this.sceneElem);
       this.callBackEnd = callBackEnd;
 
 
@@ -50,10 +47,9 @@ module.exports = function(callBackEnd) {
       hint.setHint('Tap to catch fire');
     },
     initAvatar: function() {
-        this.avatarElem = avatar.getAvatar();
-        this.avatarElem.style.right = '10px';
-        this.avatarElem.style.left = 'auto';
-        this.sceneElem.div.appendChild(this.avatarElem);
+        this.avatarElem.div.innerHTML = avatar.getSvg();
+        this.avatarElem.div.style.right   = '10px';
+        this.avatarElem.div.style.left    = 'auto';
     },
     initFire: function() {
       var svg = '<svg class="fireSvg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" width="205px" height="246px" viewBox="0 0 205 246" version="1.1"><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="a" /><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="b" /><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="c" /><path d="M198.90613,157.677914 C206.662141,124.161969 182.003806,82.8312871 182.003806,82.8312871 C182.003806,82.8312871 169.140336,123.257432 146.376266,132.154102 C161.591453,108.108824 151.544222,79.0762405 133.494077,64.5397377 C76.3069369,14.7208591 70.5106752,-31.9507589 76.3069368,29.8158746 C60.3672194,99.6098993 13.9773158,121.460983 0.899273955,157.677914 C-1.12902977,205.982305 52.0929773,244.5 99.9027019,244.5 C147.712427,244.5 185.467068,215.751947 198.90613,157.677914 Z" class="flame" id="d" /></svg>';
@@ -71,9 +67,9 @@ module.exports = function(callBackEnd) {
       }.bind(this);
 
       this.touchStartEvent = function touchStartEvent() {
-        this.avatarElem.style.left = (this.avatarElem.getBoundingClientRect().left + pxl) + 'px';
-        this.avatarElem.style.right = 'auto';        
-        this.avatarElem.className = 'run';
+        this.avatarElem.changePositionLeft(pxl);
+        this.avatarElem.div.style.right = 'auto';        
+        this.avatarElem.div.className = 'run';
         this.checkCollision();
       }.bind(this);
 
@@ -91,12 +87,12 @@ module.exports = function(callBackEnd) {
       }.bind(this));
     },
     checkCollision: function() {
-      if (this.avatarElem.getBoundingClientRect().left - (this.fireElem.getLeft() + this.fireElem.getWidth() - this.decalPxl) <= 0) { 
+      if (this.avatarElem.getLeft() - (this.fireElem.getLeft() + this.fireElem.getWidth() - this.decalPxl) <= 0) { 
         this.destroyGame(true);
       }
     },
     setDeviceSpec: function(w, h) {
-      var fireSvg = document.querySelector('.fireSvg'),
+      var fireSvg = document.querySelector('.sceneFire .fireSvg'),
           avatarSvg = document.querySelector('.sceneFire .left');
 
       fireSvg.style.width = w;
