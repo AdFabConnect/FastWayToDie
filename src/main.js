@@ -1,4 +1,5 @@
 var earth = require('./earth'),
+    attachFastClick = require('./fastclick'),
     Water = require('./water'),
     fire = require('./fire'),
     Air = require('./air'),
@@ -10,6 +11,8 @@ var earth = require('./earth'),
 var Game = {
 
   begin: function() {
+    attachFastClick(document.body);
+
     var start = document.querySelector('.start .btn'),
         bodyClass = document.body.classList;
 
