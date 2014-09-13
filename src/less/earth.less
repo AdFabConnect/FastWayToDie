@@ -18,13 +18,13 @@
 
 	.earth-cloud.up {
 		position: relative;
-		-webkit-animation: upCloud ease-out 1s;
-		-webkit-transform: translate(0px, -800px) rotate(0deg);
+		-webkit-animation: upCloud ease-in 1.3s;
+		-webkit-transform: translate(0px, -1800px) rotate(0deg);
 	}
 	
 	#avatar {
 		position: relative;
-		z-index: 9999999;
+		z-index: 999;
 		top: 0%;
 		margin: 0px auto;
 		width: 150px;
@@ -35,8 +35,8 @@
 		}
 
 		&.die {
-			-webkit-animation: aniDie ease-out 0.8s;
-			-webkit-transform: translate(0px, 200%) rotate(90deg);
+			-webkit-animation: aniDie ease-out 1s;
+			-webkit-transform: translate(0px, 250%) rotate(90deg);
 		}
 	}
 
@@ -45,6 +45,10 @@
 		width:@e-w; 
 		height:100px + @e-130;
 		-webkit-transform-origin: center;
+
+		&.used {
+			pointer-event: none;
+		}
 	}
 	
 	// Earth game
@@ -146,7 +150,7 @@
 
 	@-webkit-keyframes upCloud {
 		0% { -webkit-transform: translate(0px, 0px); }
-		100% { -webkit-transform: translate(0px, -800px); }
+		100% { -webkit-transform: translate(0px, -1800px); }
 	}
 
 	@-webkit-keyframes aniDie {

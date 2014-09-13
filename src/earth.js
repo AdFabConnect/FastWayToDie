@@ -3,6 +3,8 @@ var raf = require('./raf');
 var Avatar = require('./avatar');
 var timer = require('./timer');
 var Cloud = require('./cloud');
+var locker = require('./locker');
+var hint = require('./hint');
 
 module.exports = function(callbackEnd) {
 
@@ -20,8 +22,13 @@ module.exports = function(callbackEnd) {
 		this.div.style.zIndex = '999';
 		this.div.className = 'e-ball-wrap';
 
+		this.used = false;
 		this.div.addEventListener('click', function() {
-			callback(this.div);
+			if (!this.used) {
+				this.div.classList.add('used');
+				callback(this.div);
+			}
+			this.used = true;
 		}.bind(this));
 
 		return this.div;
@@ -38,8 +45,6 @@ module.exports = function(callbackEnd) {
 
 		aniDie: function() {
 			Avatar.getAvatar().removeEventListener('webkitAnimationEnd', this.aniDieFn);
-			this.earth.classList.add('hidden');
-
 			Avatar.getAvatar().classList.add('die');
 			Avatar.getAvatar().classList.add('run');
 			this.win(true);
@@ -77,23 +82,43 @@ module.exports = function(callbackEnd) {
 			}.bind(this));
 		},
 
-		init:function() {
+		orientation: function() {
+			window.removeEventListener('orientationChange', this.orientationFn);
+			window.removeEventListener('resize', this.orientationFn);
+
+      hint.setHint('Pop the balloon as fast as you can');
+
 			this.earth = document.getElementById('earth');
 			this.earthCloud = this.earth.querySelector('.earth-cloud');
 			this.bWrap = this.earth.querySelector('.balloon');
 
 			this.setAvatar();
-			this.initGame(this.numb);
+			this.initGame(5 + parseInt(window.levelIndex + 10));
 
 			this.earth.classList.remove('hidden');
 
-		  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
-		    this.win(false);
-		  }.bind(this));
+			timer.start(10, function() {
+				this.win(false);
+			}.bind(this));
+		},
+
+		init:function() {
+			locker.locklandscape();
+
+			this.orientationFn = this.orientation.bind(this);
+
+			if (window.innerWidth > window.innerHeight){
+				window.addEventListener('orientationChange', this.orientationFn);
+				window.addEventListener('resize', this.orientationFn);
+			}else {
+				this.orientation();
+			}
 		},
 
 		win: function(bool) {
-      timer.stop();
+			locker.unlock();
+			timer.stop();
+			this.earth.classList.add('hidden');
 
 			this.remove.call(this);
 			callbackEnd(bool);
@@ -109,32 +134,20 @@ module.exports = function(callbackEnd) {
 			this.life = cpt;
 
       var i;
-      for (var i = 0; i <= 3; i++) {
-      	var c = new Cloud();
-      	this.earthCloud.appendChild(c.getCloud((Math.random() * (i / 10)) + i / 2, 800));
-      };
+      for (i = 0; i <= 10; i++) {
+				var c = new Cloud();
+				this.earthCloud.appendChild(c.getCloud((Math.random() * (i / 10)) + i / 10, 1500));
+      }
 
-			var av = Avatar.getAvatar().offsetWidth;
+			// var av = Avatar.getAvatar().offsetWidth;
 			
-			for (var i = 0; i < cpt; i++) {
-				// var x = document.body.offsetWidth/2 + (Math.round(Math.random() * (av * 3))) - (av * 3 / 2) - 40,
+			for (i = 0; i < cpt; i++) {
 				var x = document.body.offsetWidth / 2 + (Math.round(Math.random() * (100))) - (100 / 2) - 60,
-				//var x = Math.round(Math.random() * (document.body.offsetWidth - this.size)),
 					y = Math.round(Math.random() * 20) - 40;
 
 				var b = new Ball(x, y, this.destroyBall.bind(this));
 
-				// var deltaY = 150 - y + (b.offsetHeight / 2);
-				// var deltaX = document.body.offsetWidth / 2 - (x - (b.offsetWidth / 2));
-
-				// var angle = (Math.atan(deltaX / deltaY) * 180 / Math.PI + 180);
-
 				this.balls.push(b);
-
-				//var dif = (document.body.offsetWidth / 2) - x - (b.querySelector('.e-ball').offsetWidth / 2);
-				//b.style.webkitTransform = 'rotate(' + angle + 'deg)';
-
-				//console.log('deltaY', deltaY, 'deltaX', deltaX, 'angle', angle, deltaX/deltaY);
 
 				this.bWrap.appendChild(b);
 			}
