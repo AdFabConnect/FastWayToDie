@@ -3,6 +3,7 @@ var userEvents  = require('./userEvents'),
     avatar      = require('./avatar'),
     timer       = require('./timer'),
     hint        = require('./hint'),
+    locker      = require('./locker'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
@@ -30,7 +31,21 @@ module.exports = function(callBackEnd) {
     decalPxl: 35,
     canWin: false,
     scaleCloud: [1, 0.7],
+    checkOrientation: function() {
+      locker.lockPortrait();
+      this.initFn = this.init.bind(this);
+
+      if (window.innerWidth < window.innerHeight){
+        window.addEventListener('orientationChange', this.initFn);
+        window.addEventListener('resize', this.initFn);
+      } else {
+        this.init();
+      }
+    },
     init: function() { 
+      window.removeEventListener('orientationChange', this.initFn);
+      window.removeEventListener('resize', this.initFn);
+
       this.sceneElem  = new Element('sceneFire');
       this.fireElem   = new Element('fire', this.sceneElem);
       this.avatarElem = new Element('avatar',this.sceneElem);
@@ -119,13 +134,12 @@ module.exports = function(callBackEnd) {
       this.callBackEnd(state);
       timer.stop();
     }
-    
   };
 
   timer.start([12, 9, 6][parseInt(window.levelIndex / window.gamesLength)], function() {
     fire.destroyGame(false);
   }); 
 
-  fire.init();
+  fire.checkOrientation();
   return fire;
 };
