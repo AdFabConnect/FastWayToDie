@@ -84,9 +84,9 @@ module.exports = function(callbackEnd) {
 			this.setAvatar();
 			this.initGame(this.numb);
 
-		  // timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
-		  //   this.win(false);
-		  // }.bind(this));
+		  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
+		    this.win(false);
+		  }.bind(this));
 		},
 
 		win: function(bool) {
