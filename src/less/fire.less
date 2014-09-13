@@ -10,43 +10,49 @@ body{
       position: absolute;
       -webkit-transform: scale(-1, 1);
       -webkit-animation: none;
+      z-index: 1;
+      -webkit-transition: left 300ms;
     }
     .fire{
       bottom: 0;
-      height: 246px;
-      width: 205px;
       position: absolute;
       right: 20%;
-      .flame{
-        fill:#e73900;
-        -webkit-animation-delay: 0s;
-        fill-opacity: 1;
-        -webkit-animation-timing-function: ease-in;
-        stroke-width: 0px;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: linear;
-        -webkit-animation-direction: normal;  
-        -webkit-transform-origin: 50% 100%; 
-        -webkit-animation-duration: 1.2s;   
-        &#a{
-          -webkit-animation-name: redFlame;
-        }
-        &#b{
-          -webkit-transform: rotate(10deg) translate(0px, -5px) scale(0.7);
-          -webkit-animation-name: greenFlame;
-          fill:#e78c00;
-        }
-        &#c{
-          -webkit-transform: rotate(2deg) translate(0px, -10px) scale(0.4);
-          -webkit-animation-name: yellowFlame;
-          fill:#e7e100;
-        }
-        &#d{
-          -webkit-transform: rotate(4deg) translate(0px, -13px) scale(0.2);
-          -webkit-animation-name: blueFlame;          
-          fill:#78dda1;
-        }
-      } 
+      z-index: 1;
+      .fireSvg{
+        .flame{
+          fill:#e73900;
+          -webkit-animation-delay: 0s;
+          fill-opacity: 1;
+          -webkit-animation-timing-function: ease-in;
+          stroke-width: 0px;
+          -webkit-animation-iteration-count: infinite;
+          -webkit-animation-timing-function: linear;
+          -webkit-animation-direction: normal;  
+          -webkit-transform-origin: 50% 100%; 
+          -webkit-animation-duration: 1.2s;   
+          &#a{
+            -webkit-animation-name: redFlame;
+          }
+          &#b{
+            -webkit-transform: rotate(10deg) translate(0px, -5px) scale(0.7);
+            -webkit-animation-name: greenFlame;
+            fill:#e78c00;
+          }
+          &#c{
+            -webkit-transform: rotate(2deg) translate(0px, -10px) scale(0.4);
+            -webkit-animation-name: yellowFlame;
+            fill:#e7e100;
+          }
+          &#d{
+            -webkit-transform: rotate(4deg) translate(0px, -13px) scale(0.2);
+            -webkit-animation-name: blueFlame;          
+            fill:#78dda1;
+          }
+        } 
+      }
+      .cloud{
+        z-index: 0;
+      }
     }
   }
   @-webkit-keyframes redFlame { 

@@ -1,5 +1,9 @@
 // Common style
 
+*{
+  -webkit-user-select:none;
+}
+
 @regular-font: Arial, sans-serif;
 
 html,
@@ -11,6 +15,46 @@ body{
 	height: 100%;
 	width: 100%;
 }
+
+@media (orientation: landscape) {
+  .lock-l{
+    #lock{
+      display: block;
+    }
+  }
+}
+
+@media (orientation: portrait) {
+  .lock-p{
+    #lock{
+      display: block;
+    }
+  }
+}
+
+#lock{
+  display: none;
+  background: rgba(160, 0, 0, 0.9);
+  bottom: 0;
+  top: 0;
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 100000;
+  .table{
+    display: table;
+    height: 100%;
+    width: 100%;
+  }
+  .v-align-table{
+    color: #FFF;
+    font-weight: bold;
+    font-size: 20px;
+    transform: scale(-1, -1);
+    text-align: center;
+  }
+}
+
 // use this class to make a tag full browser
 .full{
   position: absolute;
@@ -34,6 +78,7 @@ body{
 }
 
 .btn{
+  background: darken(#ffa700, 2%);
   border-radius: 5%;
   display: inline-block;
   font-size: 3em;
@@ -47,6 +92,27 @@ body{
     -webkit-animation: btnBounce 750ms ease-in-out infinite;
             animation: btnBounce 750ms ease-in-out infinite;
   }
+
+  &.purple{
+  background: darken(#3C3939, 2%);
+    &:hover{
+      background: darken(#3C3939, 10%);
+    }
+  }
+}
+
+#score{
+  padding-bottom: 10%;
+}
+
+#hint{
+  bottom: 0;
+  left: 0;
+  text-align: center;
+  padding: 2%;
+  position: absolute;
+  width: 96%;
+  z-index: 1000;
 }
 
 #counter-time {
@@ -108,6 +174,78 @@ body{
   0%  { transform: scale(1, 1)}
   50%{ transform: scale(0.9, 0.9)}
   100%{ transform: scale(1, 1)}
+}
+
+.start{
+  background: #3C3939;
+  display: none;
+  position: relative;
+  overflow: hidden;
+  z-index: 5000;
+  .btn{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -61px;
+    margin-top: -37px;;
+  }
+  .title{
+    color: #DB1818;
+    font-size: 20px;
+    padding-bottom: 130px;
+    // -webkit-animation: blurry 750ms ease-out 1;
+            animation: blurry 1000ms ease-out 1;
+    -webkit-transform-origin: 50% 10%;
+            transform-origin: 50% 10%;
+    pointer-events: none;
+    position: relative;
+    z-index: 55;
+  }
+}
+
+.start-screen{
+  .start{
+    display: table;
+  }
+}
+
+@keyframes blurry {
+  0% {
+    color: #3C3939;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -webkit-transform: scale(1, 1) rotate(0deg);
+  }
+  50%{
+    color: #DB1818;
+    filter: blur(3px);
+    -webkit-filter: blur(3px);
+    -webkit-transform: scale(3, 3) rotate(0deg);
+            transform: scale(3, 3) rotate(0deg);
+  }
+  67%{
+    -webkit-transform: scale(2, 2) rotate(-25deg);
+            transform: scale(2, 2) rotate(-25deg);
+  }
+  83%{
+    -webkit-transform: scale(1, 1) rotate(25deg);
+            transform: scale(1, 1) rotate(25deg);
+  }
+  90%{
+    -webkit-transform: scale(1, 1) rotate(-10deg);
+            transform: scale(1, 1) rotate(-10deg);
+  }
+  95%{
+    -webkit-transform: scale(1, 1) rotate(5deg);
+            transform: scale(1, 1) rotate(5deg);
+  }
+  100%{
+    color: #DB1818;
+    filter: blur(0px);
+    -webkit-filter: blur(0px);
+    -webkit-transform: scale(1, 1) rotate(0deg);
+            transform: scale(1, 1) rotate(0deg);
+  }
 }
 
 .next{

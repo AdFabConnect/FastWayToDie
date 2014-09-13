@@ -1,6 +1,9 @@
 var userEvents = require('./userEvents'),
     timer = require('./timer'),
-    avatar = require('./avatar');
+    avatar = require('./avatar'),
+    hint = require('./hint'),
+    countPlayIndex = 0,
+    countPlay = [15, 10, 7];
 
 var Water = {
 
@@ -10,6 +13,8 @@ var Water = {
     document.body.classList.add('water');
     this.setListener();
     this.createWave();
+
+    hint.setHint('Swipe to tease piranhas');
   },
 
   stop: function() {
@@ -61,6 +66,9 @@ var Water = {
         startX = 0,
         state,
         rafID;
+
+    wrapperShake.className = '';
+    wrapperShake.style.left = wrapperShake.style.right = 0;
 
     water.insertBefore(wrapperShake, water.firstChild);
 
@@ -126,12 +134,14 @@ var Water = {
     };
 
     var destroyGame = function() {
+      hint.setHint('');
       documentBody.removeEventListener(userEvents.startEvent(), touchStartEvent, false);
       documentBody.removeEventListener(userEvents.moveEvent(), touchMoveEvent, false);
       documentBody.removeEventListener(userEvents.endEvent(), touchEndEvent, false);
       timer.stop();
       isFinished = true;
       cancelAnimationFrame(rafID);
+      rafID = null;
       thisIsTheEnd(state);
       document.body.classList.remove('water');
     };
@@ -159,7 +169,8 @@ var Water = {
       if (!isFinished && newRight > halfWidthHit){
         state = true;
         destroyGame();
-      } else {
+      }
+      if (!isFinished) {
         requestAnimationFrame(moveFish);
       }
     };
@@ -172,7 +183,7 @@ var Water = {
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);
 
-    timer.start(10, function() {
+    timer.start(countPlay[(parseInt(window.levelIndex / window.gamesLength))], function() {
       state = false;
       destroyGame();
     });

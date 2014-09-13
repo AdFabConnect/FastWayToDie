@@ -3,14 +3,34 @@ var earth = require('./earth'),
     fire = require('./fire'),
     userEvents = require('./userEvents'),
     avatar = require('./avatar');
+window.levelIndex = 0;
+window.gamesLength = 0;
 
 var Game = {
 
   begin: function() {
-    this.levels = [Water, fire, earth];
+    var start = document.querySelector('.start .btn'),
+        bodyClass = document.body.classList;
+
+    document.getElementById('life').innerHTML = '';
+
+    bodyClass.add('start-screen');
+    var startFn = function() {
+      start.removeEventListener('click', startFn, false);
+      if (bodyClass.contains('start-screen')) {
+        bodyClass.remove('start-screen');
+      }
+      Game.startGame();
+    };
+    start.addEventListener('click', startFn, false);
+  },
+
+  startGame: function() {
+    this.levels = [Water, fire];
+    gamesLength = this.levels.length;
     this.scoreElement = document.querySelector('#score span');
-    this.levelIndex = 0;
-    this.score = 0;
+    window.levelIndex = 0;
+    this.scoreElement.innerHTML = this.score = 0;
     this.lifeLeft = 2;
     this.createLife();
     this.nextLevel();
@@ -27,14 +47,14 @@ var Game = {
       itemLife.className = 'dead';
       itemLife.innerHTML = avatar.getSvg();
       lifes.appendChild(itemLife);
-    };
+    }
 
   },
 
   nextLevel: function() {
-    this.levels[this.levelIndex](function(levelState) {
-      console.log('level : ' + this.levelIndex + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
-      this.levelIndex++;
+    this.levels[window.levelIndex % gamesLength](function(levelState) {
+      console.log('level : ' + (window.levelIndex % window.gamesLength) + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
+      window.levelIndex++;
       
       if (levelState) {
         this.scoreElement.innerHTML = ++this.score;
@@ -44,10 +64,12 @@ var Game = {
 
       if (this.lifeLeft < 0) {
         alert('GAME OVER');
+        window.levelIndex = 0;
+        this.begin();
       } else {
-        if(this.levelIndex >= this.levels.length){
-          this.levelIndex = 0;
-        }
+        // if (levelIndex >= this.levels.length) {
+        //   levelIndex = 0;
+        // }
         this.animNextLevel();
       }
 
@@ -58,13 +80,16 @@ var Game = {
     var bgColor = bgColor || null,
         next = document.querySelector('.next'),
         btn = next.querySelector('.btn');
-    if(bgColor) next.backgroundColor = bgColor;
+    if (bgColor) next.backgroundColor = bgColor;
     next.classList.add('on');
 
-    btn.addEventListener(userEvents.endEvent(), function() {
+    var startNext = function() {
+      btn.removeEventListener(userEvents.endEvent(), startNext, false);
       next.classList.remove('on');
-      this.nextLevel();
-    }.bind(this), false);
+      Game.nextLevel();
+    };
+
+    btn.addEventListener(userEvents.endEvent(), startNext, false);
   },
 
   end: function() {
