@@ -3,6 +3,7 @@ var userEvents  = require('./userEvents'),
     avatar      = require('./avatar'),
     timer       = require('./timer'),
     hint        = require('./hint'),
+    locker      = require('./locker'),
     Cloud       = require('./cloud');
 
 module.exports = function(callBackEnd) {
@@ -29,7 +30,22 @@ module.exports = function(callBackEnd) {
     callBackEnd: null,
     decalPxl: 35,
     canWin: false,
+    scaleCloud: [1, 0.7],
+    checkOrientation: function() {
+      locker.lockPortrait();
+      this.initFn = this.init.bind(this);
+
+      if (window.innerWidth < window.innerHeight){
+        window.addEventListener('orientationChange', this.initFn);
+        window.addEventListener('resize', this.initFn);
+      } else {
+        this.init();
+      }
+    },
     init: function() { 
+      window.removeEventListener('orientationChange', this.initFn);
+      window.removeEventListener('resize', this.initFn);
+
       this.sceneElem  = new Element('sceneFire');
       this.fireElem   = new Element('fire', this.sceneElem);
       this.avatarElem = new Element('avatar',this.sceneElem);
@@ -39,11 +55,13 @@ module.exports = function(callBackEnd) {
       this.initAvatar();
       this.initFire();
       this.setFireMoving(-0.5);
-      this.initClouds(5);
+      
       if ('ontouchend' in document) {
         this.decalPxl = 10;
+        this.scaleCloud = [0.7 , 0.4];
         this.setDeviceSpec(80, 117);
       }
+      this.initClouds(6);
       this.setListener(-8);
       hint.setHint('Tap to catch fire');
     },
@@ -59,7 +77,7 @@ module.exports = function(callBackEnd) {
     initClouds: function(cpt) {
       for (var i = 0; i < cpt; i++) {
         var c = new Cloud();
-        this.sceneElem.div.appendChild(c.getCloud((Math.random() * 1.2) + 0.8));
+        this.sceneElem.div.appendChild(c.getCloud((Math.random() * this.scaleCloud[0]) + this.scaleCloud[1], 0));
       }
     },
     setListener: function(pxl) {
@@ -116,13 +134,12 @@ module.exports = function(callBackEnd) {
       this.callBackEnd(state);
       timer.stop();
     }
-    
   };
 
-  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
+  timer.start([12, 9, 6, 5, 4, 3, 2, 1][parseInt(window.levelIndex / window.gamesLength)], function() {
     fire.destroyGame(false);
   }); 
 
-  fire.init();
+  fire.checkOrientation();
   return fire;
 };
