@@ -31,18 +31,18 @@ var Fan = function (){
     htmlFan.classList.remove('anim');
   };
 
-  if(Fan.caller != Fan.getInstance){
-    throw new Error("This object cannot be instanciated");
+  if (Fan.caller !== Fan.getInstance){
+    throw new Error('This object cannot be instanciated');
   }
-}
+};
  
 Fan.instance = null;
  
 Fan.getInstance = function(){
-  if(this.instance === null){
+  if (this.instance === null){
     this.instance = new Fan();
   }
   return this.instance;
-}
+};
  
 module.exports = Fan.getInstance();

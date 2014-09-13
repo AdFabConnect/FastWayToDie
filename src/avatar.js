@@ -14,18 +14,18 @@ var Avatar = function (){
     return svg;
   };
 
-  if(Avatar.caller != Avatar.getInstance){
-    throw new Error("This object cannot be instanciated");
+  if (Avatar.caller !== Avatar.getInstance){
+    throw new Error('This object cannot be instanciated');
   }
-}
+};
  
 Avatar.instance = null;
  
 Avatar.getInstance = function(){
-  if(this.instance === null){
+  if (this.instance === null){
     this.instance = new Avatar();
   }
   return this.instance;
-}
+};
  
 module.exports = Avatar.getInstance();

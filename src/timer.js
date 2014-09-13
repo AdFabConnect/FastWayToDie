@@ -11,7 +11,7 @@ module.exports = {
 
   start: function(duration, callBack) {
 
-    if(!this.timerElement){
+    if (!this.timerElement){
       this.create();
     }
 
