@@ -1,6 +1,7 @@
 var earth = require('./earth'),
     Water = require('./water'),
     fire = require('./fire'),
+    Air = require('./air'),
     userEvents = require('./userEvents'),
     avatar = require('./avatar');
 window.levelIndex = 0;
@@ -26,7 +27,7 @@ var Game = {
   },
 
   startGame: function() {
-    this.levels = [Water, fire];
+    this.levels = [Water, fire, Air];
     gamesLength = this.levels.length;
     this.scoreElement = document.querySelector('#score span');
     window.levelIndex = 0;
