@@ -83,7 +83,7 @@ var Air = {
       
       if (lastMove.touches){
           if (parseInt(d) <= 50 && parseInt(d) > 0){
-              skyrocket.style.left = (parseInt(skyrocket.style.left) + d * 1.2 / complexity) + 'px';
+              skyrocket.style.left = (parseInt(skyrocket.style.left) + d * 3 / complexity) + 'px';
      
               if (parseInt(skyrocket.style.left) > w - 50){
                 status = true;
