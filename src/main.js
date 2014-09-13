@@ -26,7 +26,7 @@ var Game = {
   },
 
   startGame: function() {
-    this.levels = [Water, fire];
+    this.levels = [earth, Water, fire];
     gamesLength = this.levels.length;
     this.scoreElement = document.querySelector('#score span');
     window.levelIndex = 0;

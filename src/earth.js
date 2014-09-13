@@ -33,7 +33,7 @@ module.exports = function(callbackEnd) {
 
 	var earth = {
 		size: 100,
-		numb: 10,
+		numb: 3,
 		balls: [],
 
 		destroyBall: function(div) {
@@ -46,8 +46,21 @@ module.exports = function(callbackEnd) {
 			var id = raf.start(function() {
 				if (i === 30) {
 					div.remove(this);
-					if(this.life <= 0) {
-						this.win(callbackEnd);
+					if(this.life == 1) {
+						Avatar.getAvatar().classList.add('die');
+						Avatar.getAvatar().classList.add('run');
+
+						function aniDie(arguments) {
+							Avatar.getAvatar().removeEventListener('webkitAnimationEnd', aniDieFn);
+
+							Avatar.getAvatar().classList.add('die');
+							Avatar.getAvatar().classList.add('run');
+							this.win(true);
+						}
+
+						var aniDieFn = aniDie.bind(this);
+
+						Avatar.getAvatar().addEventListener('webkitAnimationEnd', aniDieFn);
 					}
 					this.life--;
 					raf.stop(id);
@@ -70,14 +83,14 @@ module.exports = function(callbackEnd) {
 			this.initGame(this.numb);
 		},
 
-		win: function() {
-			this.remove();
-			callbackEnd();
+		win: function(bool) {
+			this.remove.call(this);
+			callbackEnd(bool);
 		},
 
 		remove: function() {
-			balls.forEach(function(e) {
-				detele e;
+			this.balls.forEach(function(e) {
+				e = null;
 			});
 		},
 
@@ -87,9 +100,10 @@ module.exports = function(callbackEnd) {
 			var av = Avatar.getAvatar().offsetWidth;
 			
 			for (var i = 0; i < cpt; i++) {
-				var x = document.body.offsetWidth/2 + (Math.round(Math.random() * (av * 3))) - (av * 3 / 2) - 40,
+				// var x = document.body.offsetWidth/2 + (Math.round(Math.random() * (av * 3))) - (av * 3 / 2) - 40,
+				var x = document.body.offsetWidth/2 + (Math.round(Math.random() * (av))) - (av / 2) - 60,
 				//var x = Math.round(Math.random() * (document.body.offsetWidth - this.size)),
-					y = Math.round(Math.random() * 20 * 2) + 20;
+					y = Math.round(Math.random() * 20) - 40;
 
 				var b = new Ball(x, y, this.destroyBall.bind(this));
 
