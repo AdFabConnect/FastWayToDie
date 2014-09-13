@@ -14,7 +14,7 @@ var Water = {
     this.setListener();
     this.createWave();
 
-    hint.setHint('Swipe to tease piranhas');
+    hint.setHint('Swipe and release to tease piranhas !');
   },
 
   stop: function() {
@@ -40,6 +40,7 @@ var Water = {
       docFrag.appendChild(wave);
       wave.style.left = i * waveWidth + 'px';
       wave.style.webkitAnimationDelay = (i / 100) + 's';
+      wave.style.animationDelay = (i / 100) + 's';
     }
     
     this.ocean.appendChild(docFrag);
@@ -50,8 +51,7 @@ var Water = {
   },
 
   setListener: function() {
-    var documentBody = document.body,
-        screenWith = window.innerHeight,
+    var screenWith = window.innerHeight,
         wrapperShake = avatar.getAvatar(),
         svgShake = wrapperShake.querySelector('#avatar svg'),
         fish1 = document.getElementById('fish-1'),
@@ -69,6 +69,8 @@ var Water = {
 
     wrapperShake.className = '';
     wrapperShake.style.left = wrapperShake.style.right = 0;
+    wrapperShake.querySelector('svg').style.width = "100%";
+    wrapperShake.querySelector('svg').style.height = "auto";
 
     water.insertBefore(wrapperShake, water.firstChild);
 
@@ -107,6 +109,7 @@ var Water = {
 
     var touchMoveEvent = function touchMoveEvent(e) {
       e.preventDefault();
+      e.stopPropagation();
 
       var newDirection = (currentX > (e.touches ? e.touches[0].pageX : e.pageX)) ? 'left' : 'right';
       currentX = e.touches ? e.touches[0].pageX : e.pageX;
@@ -121,23 +124,24 @@ var Water = {
       
       currentDistance = ((currentX < startX) ? -Math.abs(currentX - startX) : Math.abs(currentX - startX));
 
-      isMoving = (Math.abs(currentDistance) > window.innerWidth * 0.3);
+      isMoving = (Math.abs(currentDistance) > window.innerWidth * 0); 
     };
 
     var touchStartEvent = function touchStartEvent(e) {
+      e.preventDefault();
       currentX = startX =  e.touches ? e.touches[0].pageX : e.pageX;
-      documentBody.addEventListener(userEvents.moveEvent(), touchMoveEvent, false);
+      document.addEventListener(userEvents.moveEvent(), touchMoveEvent, false);
     };
 
     var touchEndEvent = function touchEndEvent() {
-      documentBody.removeEventListener(userEvents.moveEvent(), touchMoveEvent, false);
+      document.removeEventListener(userEvents.moveEvent(), touchMoveEvent, false);
     };
 
     var destroyGame = function() {
       hint.setHint('');
-      documentBody.removeEventListener(userEvents.startEvent(), touchStartEvent, false);
-      documentBody.removeEventListener(userEvents.moveEvent(), touchMoveEvent, false);
-      documentBody.removeEventListener(userEvents.endEvent(), touchEndEvent, false);
+      document.removeEventListener(userEvents.startEvent(), touchStartEvent, false);
+      document.removeEventListener(userEvents.moveEvent(), touchMoveEvent, false);
+      document.removeEventListener(userEvents.endEvent(), touchEndEvent, false);
       timer.stop();
       isFinished = true;
       cancelAnimationFrame(rafID);
@@ -177,8 +181,8 @@ var Water = {
 
     rafID = requestAnimationFrame(moveFish);
 
-    documentBody.addEventListener(userEvents.startEvent(), touchStartEvent, false);
-    documentBody.addEventListener(userEvents.endEvent(), touchEndEvent, false);
+    document.addEventListener(userEvents.startEvent(), touchStartEvent, false);
+    document.addEventListener(userEvents.endEvent(), touchEndEvent, false);
 
     window.addEventListener('orientationchange', this.createWave, false);
     window.addEventListener('resize', this.createWave, false);

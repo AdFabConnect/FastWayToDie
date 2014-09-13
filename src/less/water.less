@@ -15,8 +15,11 @@ body{
 	position: absolute;
 	top: 0;
 	left: 0;
+  pointer-events: none;
 	height: 100%;
 	width: 100%;
+  -webkit-user-select :none;
+  user-select :none;
   
   #avatar{
     position: absolute;
@@ -116,16 +119,38 @@ body{
   position:absolute;
   -webkit-animation: animWave 3s ease-in-out infinite;
 	  			animation: animWave 3s ease-in-out infinite;
+  -webkit-transform: scale(1, 1) translate3d(0, 0, 0);
+          transform: scale(1, 1) translate3d(0, 0, 0);
+  -webkit-user-select: none;
+  user-select: none;
+  pointer-events: none;
+    -webkit-transform-origin: 0% 100%;
+            transform-origin: 0% 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
+// @-webkit-keyframes animWave{
+//   0%  { height:60%; }
+//   50% { height:25%; }
+//   100%{ height:60%; }
+// }
+
+// @keyframes animWave {
+//   0%  { height:60%; }
+//   50% { height:25%; }
+//   100%{ height:60%; }
+// }
+
 @-webkit-keyframes animWave{
-  0%  { height:60%; }
-  50% { height:25%; }
-  100%{ height:60%; }
+  0%  { -webkit-transform: scale(1, 0.6); }
+  50% { -webkit-transform: scale(1, 0.25); }
+  100%{ -webkit-transform: scale(1, 0.6); }
 }
 
 @keyframes animWave {
-  0%  { height:60%; }
-  50% { height:25%; }
-  100%{ height:60%; }
+  0%  { transform: scale(1, 0.6); }
+  50% { transform: scale(1, 0.25); }
+  100%{ transform: scale(1, 0.6); }
 }
+
