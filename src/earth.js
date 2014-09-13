@@ -93,7 +93,7 @@ module.exports = function(callbackEnd) {
 			this.bWrap = this.earth.querySelector('.balloon');
 
 			this.setAvatar();
-			this.initGame(5 + parseInt(window.levelIndex + 10));
+			this.initGame(parseInt(window.levelIndex + 10));
 
 			this.earth.classList.remove('hidden');
 
