@@ -8,13 +8,14 @@ var userEvents = require('./userEvents'),
 var Air = {
   start: function(callBackEnd) {
     this.callBackEnd = callBackEnd;
-    this.setListener();
     locker.lockPortrait();
+    this.setListener();
     
     hint.setHint('Swipe on the hero to get crushed by the fan !');
   },
     
   setListener: function() {
+      
     var w = window.screen.availWidth,
         skyrocket = document.getElementById('air'),
         fanDiv = document.getElementById('fanPlace'),
@@ -65,6 +66,9 @@ var Air = {
         rafID = null;
         thisIsTheEnd(status);
         fanDiv.style.display = 'none';
+        skyrocket.removeChild(hulaup);
+        fanDiv.removeChild(ventilo);
+        
       };
         
     var touchEndEvent = function touchEndEvent(e) {        
@@ -74,12 +78,14 @@ var Air = {
       var p = parseInt(skyrocket.style.left);
       
       if (lastMove.touches){
-          var complexity = 1-parseInt(window.levelIndex/window.gamesLength)*0.3;
+          var complexity = 1;//-parseInt(window.levelIndex)*0.9;
 
+          //debug = document.getElementById('debug');
+          //debug.innerHTML = 'width : ' + document.getElementById('air').offsetWidth + ' - complexity : ' + complexity + ' - swipe : '+parseInt(d) + ' - w : '+ w + ' - p : ' + p;
           if (parseInt(d) <= 50){
               skyrocket.style.left = (p + d * complexity) + 'px';
      
-              if (p > w-10){
+              if (parseInt(skyrocket.style.left) > w-document.getElementById('air').offsetWidth){
                 status = true;
                 destroyGame();
               }
