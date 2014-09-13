@@ -2,6 +2,7 @@
 @e-130: (@e-w) + (@e-w * 30 / 100);
 
 #earth {
+  background: #00eaff;
 	width: 100%;
 	height: 100%;
 	overflow: hidden;
@@ -10,20 +11,27 @@
 	.balloon {
 		z-index: 1;
 	}
+
+	.earth-cloud.up {
+		position: relative;
+		-webkit-animation: upCloud ease-out 0.8s;
+		-webkit-transform: translate(0px, -200px) rotate(0deg);
+	}
 	
 	#avatar {
+		position: relative;
 		z-index: 9999999;
 		top: 0%;
 		margin: 0px auto;
-		width: 100px;
-		-webkit-transform: translate(0px, 50px);
+		width: 150px;
+		-webkit-transform: translate(0px, 100px);
 
 		svg {
 			width: 100%;
 		}
 
 		&.die {
-			-webkit-animation: aniDie ease-out 1s;
+			-webkit-animation: aniDie ease-out 0.8s;
 			-webkit-transform: translate(0px, 200%) rotate(90deg);
 		}
 	}
@@ -132,9 +140,14 @@
 		}
 	}
 
+	@-webkit-keyframes upCloud {
+		0% { -webkit-transform: translate(0px, 0px); }
+		100% { -webkit-transform: translate(0px, -300px); }
+	}
+
 	@-webkit-keyframes aniDie {
-		0% { -webkit-transform: translate(0px, 50px) rotate(0deg); }
-		100% { -webkit-transform: translate(-100px, 200%) rotate(90deg); }
+		0% { -webkit-transform: translate(0px, 100px) rotate(0deg); }
+		100% { -webkit-transform: translate(-130px, 200%) rotate(90deg); }
 	}
 
 	@-webkit-keyframes fly {

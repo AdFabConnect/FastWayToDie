@@ -13,8 +13,10 @@ var Cloud = function Cloud() {
   this.htmlCloud.className = 'cloud';
 };
 
-Cloud.prototype.getCloud = function getCloud(scale) {
-  this.htmlCloud.style.webkitTransform = 'translate(' + Math.round(Math.random() * (document.body.offsetWidth - 100)) + 'px, ' + Math.round(Math.random() * 100 * 2) + 'px) scale(' + scale + ')';
+Cloud.prototype.getCloud = function getCloud(scale, y) {
+	y = y || 100;
+	
+  this.htmlCloud.style.webkitTransform = 'translate(' + Math.round(Math.random() * (document.body.offsetWidth - 100)) + 'px, ' + Math.round(Math.random() * y * 2) + 'px) scale(' + scale + ')';
   return this.htmlCloud;
 };
 

@@ -2,6 +2,7 @@ var rng = require('./rng');
 var raf = require('./raf');
 var Avatar = require('./avatar');
 var timer = require('./timer');
+var Cloud = require('./cloud');
 
 module.exports = function(callbackEnd) {
 
@@ -56,6 +57,7 @@ module.exports = function(callbackEnd) {
 					if (this.life === 1) {
 						Avatar.getAvatar().classList.add('die');
 						Avatar.getAvatar().classList.add('run');
+						this.earthCloud.classList.add('up');
 
 						this.aniDieFn = this.aniDie.bind(this);
 
@@ -76,19 +78,20 @@ module.exports = function(callbackEnd) {
 
 		init:function() {
 			this.earth = document.getElementById('earth');
+			this.earthCloud = this.earth.querySelector('.earth-cloud');
 			this.bWrap = this.earth.querySelector('.balloon');
 
 			this.setAvatar();
 			this.initGame(this.numb);
 
-		  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
-		    this.win(false);
-		  }.bind(this)); 
+		  // timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
+		  //   this.win(false);
+		  // }.bind(this));
 		},
 
 		win: function(bool) {
       timer.stop();
-      
+
 			this.remove.call(this);
 			callbackEnd(bool);
 		},
@@ -102,11 +105,17 @@ module.exports = function(callbackEnd) {
 		initGame: function(cpt) {
 			this.life = cpt;
 
+      var i;
+      for (var i = 0; i <= 3; i++) {
+      	var c = new Cloud();
+      	this.earthCloud.appendChild(c.getCloud((Math.random() * (i / 10)) + i / 2, 800));
+      };
+
 			var av = Avatar.getAvatar().offsetWidth;
 			
 			for (var i = 0; i < cpt; i++) {
 				// var x = document.body.offsetWidth/2 + (Math.round(Math.random() * (av * 3))) - (av * 3 / 2) - 40,
-				var x = document.body.offsetWidth / 2 + (Math.round(Math.random() * (av))) - (av / 2) - 60,
+				var x = document.body.offsetWidth / 2 + (Math.round(Math.random() * (100))) - (100 / 2) - 60,
 				//var x = Math.round(Math.random() * (document.body.offsetWidth - this.size)),
 					y = Math.round(Math.random() * 20) - 40;
 
