@@ -136,7 +136,7 @@ module.exports = function(callBackEnd) {
     }
   };
 
-  timer.start([12, 9, 6][parseInt(window.levelIndex / window.gamesLength)], function() {
+  timer.start([12, 9, 6, 5, 4, 3, 2, 1][parseInt(window.levelIndex / window.gamesLength)], function() {
     fire.destroyGame(false);
   }); 
 
