@@ -2,7 +2,7 @@ var rng = require('./rng');
 var raf = require('./raf');
 var Avatar = require('./avatar');
 
-module.exports = function() {
+module.exports = function(callbackEnd) {
 
 	var Ball = function(x, y, callback) {
 		var color = rng().randHex();
@@ -27,9 +27,14 @@ module.exports = function() {
 		return this.div;
 	};
 
+	// Ball.prototype.remove = function() {
+		
+	// }
+
 	var earth = {
 		size: 100,
 		numb: 10,
+		balls: [],
 
 		destroyBall: function(div) {
 			var i = 0,
@@ -42,7 +47,7 @@ module.exports = function() {
 				if (i === 30) {
 					div.remove(this);
 					if(this.life <= 0) {
-						this.win();
+						this.win(callbackEnd);
 					}
 					this.life--;
 					raf.stop(id);
@@ -66,7 +71,14 @@ module.exports = function() {
 		},
 
 		win: function() {
-			console.log(win);
+			this.remove();
+			callbackEnd();
+		},
+
+		remove: function() {
+			balls.forEach(function(e) {
+				detele e;
+			});
 		},
 
 		initGame: function(cpt) {
@@ -85,6 +97,8 @@ module.exports = function() {
 				var deltaX = document.body.offsetWidth / 2 - (x - (b.offsetWidth / 2));
 
 				var angle = (Math.atan(deltaX/deltaY) * 180 / Math.PI + 180);
+
+				this.balls.push(b);
 
 				//var dif = (document.body.offsetWidth / 2) - x - (b.querySelector('.e-ball').offsetWidth / 2);
 				//b.style.webkitTransform = 'rotate(' + angle + 'deg)';
