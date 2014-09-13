@@ -28,6 +28,7 @@ module.exports = function(callBackEnd) {
     avatarElem: null,
     callBackEnd: null,
     decalPxl: 35,
+    canWin: false,
     init: function() { 
       this.sceneElem  = new Element('sceneFire');
       this.fireElem   = new Element('fire', this.sceneElem);
@@ -37,7 +38,7 @@ module.exports = function(callBackEnd) {
 
       this.initAvatar();
       this.initFire();
-      this.setFireMoving(-1);
+      this.setFireMoving(-0.5);
       this.initClouds(5);
       if ('ontouchend' in document) {
         this.decalPxl = 10;
@@ -63,14 +64,18 @@ module.exports = function(callBackEnd) {
     },
     setListener: function(pxl) {
       this.touchEndEvent = function touchEndEvent() {
-        this.avatarElem.className = '';
+        this.avatarElem.div.className = '';
       }.bind(this);
 
       this.touchStartEvent = function touchStartEvent() {
         this.avatarElem.changePositionLeft(pxl);
         this.avatarElem.div.style.right = 'auto';        
         this.avatarElem.div.className = 'run';
-        this.checkCollision();
+        if (this.canWin) {
+          this.avatarElem.div.style.webkitTransition = 'left 300ms';
+          this.checkCollision();
+        }
+        this.canWin = true;
       }.bind(this);
 
       document.body.addEventListener(userEvents.startEvent(), this.touchStartEvent, false);
@@ -79,7 +84,7 @@ module.exports = function(callBackEnd) {
     setFireMoving: function(pxl) { 
       var i = 0;
       raf.start(function() {
-        if (i % 2 === 0) {
+        if (i % 1 === 0) {
           this.fireElem.changePositionLeft(pxl);
           this.fireElem.div.style.right = 'auto'; 
         }
