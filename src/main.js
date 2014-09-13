@@ -1,10 +1,11 @@
 var earth = require('./earth'),
     Water = require('./water'),
     fire = require('./fire'),
+    Air = require('./air'),
     userEvents = require('./userEvents'),
     avatar = require('./avatar');
-window.levelIndex = 0;
-window.gamesLength = 0;
+    window.levelIndex = 0;
+    window.gamesLength = 0;
 
 var Game = {
 
@@ -26,8 +27,8 @@ var Game = {
   },
 
   startGame: function() {
-    this.levels = [earth, Water, fire];
-    gamesLength = this.levels.length;
+    this.levels = [earth, Water, fire, Air];
+    window.gamesLength = this.levels.length;
     this.scoreElement = document.querySelector('#score span');
     window.levelIndex = 0;
     this.scoreElement.innerHTML = this.score = 0;
@@ -52,7 +53,7 @@ var Game = {
   },
 
   nextLevel: function() {
-    this.levels[window.levelIndex % gamesLength](function(levelState) {
+    this.levels[window.levelIndex % window.gamesLength](function(levelState) {
       console.log('level : ' + (window.levelIndex % window.gamesLength) + ' finished -> levelState : ' + ((levelState) ? 'win' : 'lose'));
       window.levelIndex++;
       
