@@ -38,6 +38,7 @@ module.exports = function(callbackEnd) {
 
 		aniDie: function() {
 			Avatar.getAvatar().removeEventListener('webkitAnimationEnd', this.aniDieFn);
+			this.earth.classList.add('hidden');
 
 			Avatar.getAvatar().classList.add('die');
 			Avatar.getAvatar().classList.add('run');
@@ -83,6 +84,8 @@ module.exports = function(callbackEnd) {
 
 			this.setAvatar();
 			this.initGame(this.numb);
+
+			this.earth.classList.remove('hidden');
 
 		  timer.start([15, 7, 4][parseInt(window.levelIndex / window.gamesLength)], function() {
 		    this.win(false);

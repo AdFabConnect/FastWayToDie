@@ -8,14 +8,18 @@
 	overflow: hidden;
 	position: absolute;
 
+	&.hidden {
+		display: none;
+	}
+
 	.balloon {
 		z-index: 1;
 	}
 
 	.earth-cloud.up {
 		position: relative;
-		-webkit-animation: upCloud ease-out 0.8s;
-		-webkit-transform: translate(0px, -200px) rotate(0deg);
+		-webkit-animation: upCloud ease-out 1s;
+		-webkit-transform: translate(0px, -800px) rotate(0deg);
 	}
 	
 	#avatar {
@@ -142,7 +146,7 @@
 
 	@-webkit-keyframes upCloud {
 		0% { -webkit-transform: translate(0px, 0px); }
-		100% { -webkit-transform: translate(0px, -300px); }
+		100% { -webkit-transform: translate(0px, -800px); }
 	}
 
 	@-webkit-keyframes aniDie {
