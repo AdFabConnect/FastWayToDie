@@ -30,7 +30,7 @@ var Air = {
         rafID,
         isFinished = false;
     
-    skyrocket.style.left = w * 1 / 2 + 'px';
+    skyrocket.style.left = w * 1 / 3 + 'px';
     ventilo.start();
     skyrocket.insertBefore(hulaup, skyrocket.firstChild);
     fanDiv.insertBefore(ventilo, fanDiv.firstChild);
@@ -71,43 +71,33 @@ var Air = {
         
       };
         
-    var touchEndEvent = function touchEndEvent(e) {        
+    var touchEndEvent = function touchEndEvent() {        
       endX = lastMove.touches ? lastMove.touches[0].pageX : lastMove.pageX;
 
       var d = endX - startX;
       var p = parseInt(skyrocket.style.left);
+      var complexity = window.levelIndex + 1;
+      
+      //debug = document.getElementById('debug');
+      //debug.innerHTML = 'dep : ' + (p + d * 3/complexity) + 'px' + ' - width : ' + document.getElementById('air').offsetWidth + ' - complexity : ' + complexity + ' - swipe : '+parseInt(d) + ' - w : '+ w + ' - p : ' + p;
       
       if (lastMove.touches){
-          var complexity = 1;//-parseInt(window.levelIndex)*0.9;
-
-          //debug = document.getElementById('debug');
-          //debug.innerHTML = 'width : ' + document.getElementById('air').offsetWidth + ' - complexity : ' + complexity + ' - swipe : '+parseInt(d) + ' - w : '+ w + ' - p : ' + p;
-          if (parseInt(d) <= 50){
-              skyrocket.style.left = (p + d * complexity) + 'px';
+          if (parseInt(d) <= 50 && parseInt(d) > 0){
+              skyrocket.style.left = (parseInt(skyrocket.style.left) + d * 1.2 / complexity) + 'px';
      
-              if (parseInt(skyrocket.style.left) > w-document.getElementById('air').offsetWidth){
+              if (parseInt(skyrocket.style.left) > w - 50){
                 status = true;
                 destroyGame();
               }
           }
       } else {
           if (d === parseInt(d)){
-            
-            skyrocket.style.left = (p + d * 2) + 'px';    
+
+            skyrocket.style.left = (parseInt(skyrocket.style.left) + d * 2 / complexity) + 'px';    
       
-            if (p > w - 200){
+            if (parseInt(skyrocket.style.left) > w - document.getElementById('air').offsetWidth){
               status = true;
               destroyGame();
-            }
-              
-            if (p > w * 3 / 4){
-              f = 3;
-            } else if (p > w / 2){
-              f = 2;
-            } else if (p > w / 4){
-              f = 1;
-            } else {
-              f = 0.5;
             }
           }
       }
