@@ -107,7 +107,7 @@ module.exports = function(callbackEnd) {
 
 			this.orientationFn = this.orientation.bind(this);
 
-			if (window.innerWidth > window.innerHeight){
+			if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth > window.innerHeight){
 				window.addEventListener('orientationChange', this.orientationFn);
 				window.addEventListener('resize', this.orientationFn);
 			}else {

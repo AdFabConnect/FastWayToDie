@@ -35,7 +35,7 @@ module.exports = function(callBackEnd) {
       locker.lockPortrait();
       this.initFn = this.init.bind(this);
 
-      if (window.innerWidth < window.innerHeight){
+      if (/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) && window.innerWidth < window.innerHeight){
         window.addEventListener('orientationChange', this.initFn);
         window.addEventListener('resize', this.initFn);
       } else {
